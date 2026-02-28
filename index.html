@@ -10,6 +10,11 @@
 <meta name="keywords" content="AI Engineer, Machine Learning Engineer, NLP, Data Science, Python Developer, AI Portfolio">
 <meta name="author" content="Aravind Damera">
 
+<!-- Open Graph (LinkedIn Sharing) -->
+<meta property="og:title" content="Aravind Damera | AI/ML Engineer">
+<meta property="og:description" content="Portfolio of Aravind Damera - AI/ML Engineer building intelligent systems.">
+<meta property="og:type" content="website">
+
 <link rel="canonical" href="https://yourdomain.com/">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -29,10 +34,6 @@ scroll-behavior:smooth;
 body{
 color:white;
 overflow-x:hidden;
-}
-
-/* ANIMATED GRADIENT BACKGROUND */
-body{
 background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#00f5d4);
 background-size:400% 400%;
 animation:gradientBG 12s ease infinite;
@@ -78,7 +79,6 @@ transition:0.3s;
 color:#00f5d4;
 }
 
-/* MOBILE TOGGLE */
 .menu-toggle{
 display:none;
 font-size:22px;
@@ -103,6 +103,8 @@ margin-bottom:20px;
 
 .hero span{
 color:#00f5d4;
+border-right:3px solid #00f5d4;
+padding-right:5px;
 }
 
 .hero p{
@@ -119,6 +121,7 @@ text-decoration:none;
 font-weight:600;
 margin:10px;
 transition:0.3s;
+display:inline-block;
 }
 
 .btn:hover{
@@ -127,7 +130,7 @@ transform:scale(1.08);
 
 /* SECTIONS */
 section{
-padding:80px 10%;
+padding:100px 10%;
 opacity:0;
 transform:translateY(50px);
 transition:1s ease;
@@ -232,6 +235,7 @@ display:block;
 
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -244,12 +248,14 @@ display:block;
 <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 </nav>
 
-<section class="hero">
+<section class="hero active">
 <h1>I build <span id="typing"></span></h1>
 <p>AI/ML Engineer focused on scalable intelligent systems, predictive modeling, and NLP applications.</p>
+
 <a href="resume.pdf" download class="btn">
 <i class="fas fa-download"></i> Download Resume
 </a>
+
 <a href="https://github.com/Aravind-848" target="_blank" class="btn">
 <i class="fab fa-github"></i> GitHub
 </a>
@@ -262,15 +268,15 @@ display:block;
 <div class="project-card">
 <h3>Customer Churn Prediction</h3>
 <p>Accuracy: 87% | F1: 0.84</p>
-<a href="#" class="btn">Live Demo</a>
-<a href="#" class="btn">GitHub</a>
+<a href="https://your-live-demo-link.com" target="_blank" class="btn">Live Demo</a>
+<a href="https://github.com/Aravind-848/customer-churn-prediction" target="_blank" class="btn">GitHub</a>
 </div>
 
 <div class="project-card">
 <h3>Resume Intelligence Platform</h3>
 <p>NLP Matching Accuracy: 85%</p>
-<a href="#" class="btn">Live Demo</a>
-<a href="#" class="btn">GitHub</a>
+<a href="https://your-live-demo-link.com" target="_blank" class="btn">Live Demo</a>
+<a href="https://github.com/Aravind-848/resume-intelligence-platform" target="_blank" class="btn">GitHub</a>
 </div>
 
 </div>
@@ -278,47 +284,71 @@ display:block;
 
 <section id="blog">
 <h2>AI Blog</h2>
+
 <div class="blog-card">
 <h3>Understanding Bias-Variance Tradeoff</h3>
 <p>Deep dive into model generalization and overfitting concepts.</p>
 </div>
+
 <div class="blog-card">
 <h3>How NLP Powers Resume Screening</h3>
 <p>Exploring TF-IDF and similarity scoring in recruitment AI.</p>
 </div>
+
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <div class="contact-container">
-<a href="mailto:yourmail@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
-<a href="https://www.linkedin.com/" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-<a href="https://github.com/Aravind-848" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+
+<a href="mailto:aravindyouremail@gmail.com" class="contact-item">
+<i class="fas fa-envelope"></i> Email
+</a>
+
+<a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" class="contact-item">
+<i class="fab fa-linkedin"></i> LinkedIn
+</a>
+
+<a href="https://github.com/Aravind-848" target="_blank" class="contact-item">
+<i class="fab fa-github"></i> GitHub
+</a>
+
 </div>
 </section>
 
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
 
 /* Typing Effect */
-const text = ["AI Systems.", "ML Models.", "Intelligent Applications."];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+const words = ["AI Systems.", "ML Models.", "Intelligent Applications."];
+let i = 0;
+let j = 0;
+let current = "";
+let deleting = false;
 
-(function type(){
-if(count === text.length){ count = 0; }
-currentText = text[count];
-letter = currentText.slice(0, ++index);
-document.getElementById("typing").textContent = letter;
-if(letter.length === currentText.length){
-count++;
-index = 0;
+function typeEffect(){
+current = words[i];
+if(!deleting){
+document.getElementById("typing").textContent = current.slice(0, ++j);
+if(j === current.length){
+deleting = true;
+setTimeout(typeEffect, 1000);
+return;
 }
-setTimeout(type, 120);
-})();
+}else{
+document.getElementById("typing").textContent = current.slice(0, --j);
+if(j === 0){
+deleting = false;
+i = (i+1) % words.length;
+}
+}
+setTimeout(typeEffect, deleting ? 60 : 120);
+}
+
+typeEffect();
 
 /* Scroll Reveal */
 const sections = document.querySelectorAll("section");
@@ -331,12 +361,18 @@ sec.classList.add("active");
 });
 });
 
-/* Mobile Navbar Toggle */
+/* Mobile Navbar Toggle + Auto Close */
 const toggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 toggle.addEventListener("click",()=>{
 navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+link.addEventListener("click",()=>{
+navLinks.classList.remove("active");
+});
 });
 
 </script>
