@@ -3,262 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Aravind Damera | AI/ML Engineer</title>
 
-<meta name="description" content="Aravind Damera - AI/ML Engineer specializing in Machine Learning, NLP, Predictive Modeling and Intelligent Systems.">
-<meta name="keywords" content="AI Engineer, Machine Learning Engineer, NLP, Data Science, Python Developer, AI Portfolio">
-<meta name="author" content="Aravind Damera">
-
-<!-- Open Graph (LinkedIn Sharing) -->
-<meta property="og:title" content="Aravind Damera | AI/ML Engineer">
-<meta property="og:description" content="Portfolio of Aravind Damera - AI/ML Engineer building intelligent systems.">
-<meta property="og:type" content="website">
-
-<link rel="canonical" href="https://yourdomain.com/">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-
-/* RESET */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
+font-family:'Inter',sans-serif;
+background:#0a0f1c;
 color:white;
 overflow-x:hidden;
-background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#00f5d4);
-background-size:400% 400%;
-animation:gradientBG 12s ease infinite;
 }
 
-@keyframes gradientBG{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* NAVBAR */
-nav{
+#particles-js{
 position:fixed;
 width:100%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+height:100%;
+z-index:-1;
+}
+
+nav{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:15px 10%;
+padding:20px 60px;
+position:fixed;
+width:100%;
+background:rgba(10,15,28,0.85);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
-.logo{
-font-weight:700;
-font-size:20px;
-}
-
-.nav-links{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-.nav-links a{
+nav a{
 color:white;
 text-decoration:none;
+margin-left:25px;
 transition:0.3s;
 }
 
-.nav-links a:hover{
-color:#00f5d4;
+nav a:hover{
+color:#00f0ff;
 }
 
-.menu-toggle{
-display:none;
-font-size:22px;
-cursor:pointer;
-}
-
-/* HERO */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:0 20px;
+padding-top:180px;
+padding-bottom:120px;
+}
+
+.profile-img{
+width:180px;
+height:180px;
+border-radius:50%;
+border:4px solid #00f0ff;
+object-fit:cover;
+margin-bottom:25px;
+box-shadow:0 0 30px #00f0ff;
 }
 
 .hero h1{
-font-size:42px;
+font-size:50px;
 margin-bottom:20px;
+color:#00f0ff;
+text-shadow:
+0 0 5px #00f0ff,
+0 0 10px #00f0ff,
+0 0 20px #00f0ff,
+0 0 40px #00f0ff;
+animation:glow 2s infinite alternate;
 }
 
-.hero span{
-color:#00f5d4;
-border-right:3px solid #00f5d4;
-padding-right:5px;
+@keyframes glow{
+from{ text-shadow:0 0 10px #00f0ff,0 0 20px #00f0ff;}
+to{ text-shadow:0 0 20px #00f0ff,0 0 40px #00f0ff;}
 }
 
 .hero p{
-max-width:600px;
-margin-bottom:25px;
+color:#ccc;
+max-width:650px;
+margin:auto;
+margin-bottom:30px;
 }
 
 .btn{
-background:#00f5d4;
+display:inline-block;
+padding:12px 30px;
+margin:10px;
+background:#00f0ff;
 color:black;
-padding:12px 25px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
-margin:10px;
 transition:0.3s;
-display:inline-block;
 }
 
 .btn:hover{
-transform:scale(1.08);
+background:white;
 }
 
-/* SECTIONS */
 section{
-padding:100px 10%;
+padding:100px 80px;
+text-align:center;
 opacity:0;
 transform:translateY(50px);
 transition:1s ease;
 }
 
-section.active{
+section.show{
 opacity:1;
 transform:translateY(0);
 }
 
 h2{
-text-align:center;
 margin-bottom:40px;
+font-size:32px;
 }
 
-/* PROJECTS */
 .projects{
-display:flex;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
-justify-content:center;
 }
 
 .project-card{
-background:rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);
 padding:25px;
-border-radius:15px;
-width:300px;
-backdrop-filter:blur(8px);
-transition:0.4s;
+border-radius:20px;
+transition:0.3s;
 }
 
 .project-card:hover{
 transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,240,255,0.3);
 }
 
-/* BLOG */
-.blog-card{
-background:rgba(255,255,255,0.1);
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
+.contact p{
+margin:18px 0;
+font-size:18px;
 }
 
-/* CONTACT */
-.contact-container{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+.contact i{
+color:#00f0ff;
+margin-right:10px;
 }
 
-.contact-item{
-background:rgba(255,255,255,0.1);
-padding:12px 20px;
-border-radius:8px;
-text-decoration:none;
+.contact a{
 color:white;
+text-decoration:none;
 transition:0.3s;
 }
 
-.contact-item:hover{
-background:#00f5d4;
-color:black;
+.contact a:hover{
+color:#00f0ff;
 }
 
-/* WHATSAPP FLOAT */
-.whatsapp{
+.whatsapp-float{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:25px;
+right:25px;
 background:#25D366;
-padding:15px;
-border-radius:50%;
-font-size:22px;
 color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+box-shadow:0 4px 15px rgba(0,0,0,0.4);
+z-index:1000;
+transition:0.3s;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-
-.nav-links{
-position:absolute;
-top:70px;
-right:-100%;
-background:black;
-flex-direction:column;
-width:200px;
-padding:20px;
-transition:0.5s;
+.whatsapp-float:hover{
+transform:scale(1.1);
 }
 
-.nav-links.active{
-right:0;
+footer{
+background:#050914;
+padding:40px 20px;
+text-align:center;
 }
 
-.menu-toggle{
-display:block;
+.footer-icons a{
+color:white;
+margin:0 15px;
+font-size:22px;
+transition:0.3s;
 }
 
+.footer-icons a:hover{
+color:#00f0ff;
 }
 
+footer p{
+margin-top:20px;
+color:#aaa;
+}
 </style>
 </head>
 
 <body>
 
+<div id="particles-js"></div>
+
 <nav>
-<div class="logo">Aravind Damera</div>
-<ul class="nav-links">
-<li><a href="#projects">Projects</a></li>
-<li><a href="#blog">Blog</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<div class="menu-toggle"><i class="fas fa-bars"></i></div>
+<div><strong>Aravind Damera</strong></div>
+<div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
-<section class="hero active">
-<h1>I build <span id="typing"></span></h1>
-<p>AI/ML Engineer focused on scalable intelligent systems, predictive modeling, and NLP applications.</p>
+<div class="hero">
 
-<a href="resume.pdf" download class="btn">
+<!-- PROFILE IMAGE -->
+<img src="assets/profile.jpg" alt="Aravind Damera" class="profile-img">
+
+<h1>AI / ML Engineer</h1>
+
+<p>
+Building intelligent AI systems, predictive models, and scalable machine learning solutions.
+</p>
+
+<!-- CORRECT RESUME PATH -->
+<a href="assets/resume.pdf" class="btn" download>
 <i class="fas fa-download"></i> Download Resume
 </a>
 
-<a href="https://github.com/Aravind-848" target="_blank" class="btn">
-<i class="fab fa-github"></i> GitHub
-</a>
+<a href="#contact" class="btn">Hire Me</a>
+
+</div>
+
+<section id="about">
+<h2>About Me</h2>
+<p>
+Computer Science (AIML) student specializing in predictive modeling,
+NLP systems, and real-world AI applications.
+</p>
 </section>
 
 <section id="projects">
@@ -267,114 +258,82 @@ display:block;
 
 <div class="project-card">
 <h3>Customer Churn Prediction</h3>
-<p>Accuracy: 87% | F1: 0.84</p>
-<a href="https://your-live-demo-link.com" target="_blank" class="btn">Live Demo</a>
-<a href="https://github.com/Aravind-848/customer-churn-prediction" target="_blank" class="btn">GitHub</a>
+<p>Machine learning model predicting telecom churn.</p>
 </div>
 
 <div class="project-card">
 <h3>Resume Intelligence Platform</h3>
-<p>NLP Matching Accuracy: 85%</p>
-<a href="https://your-live-demo-link.com" target="_blank" class="btn">Live Demo</a>
-<a href="https://github.com/Aravind-848/resume-intelligence-platform" target="_blank" class="btn">GitHub</a>
+<p>NLP-based resume screening system using Flask.</p>
+</div>
+
+<div class="project-card">
+<h3>Medical Diagnosis Expert System</h3>
+<p>Inference engine for symptom-based disease prediction.</p>
 </div>
 
 </div>
-</section>
-
-<section id="blog">
-<h2>AI Blog</h2>
-
-<div class="blog-card">
-<h3>Understanding Bias-Variance Tradeoff</h3>
-<p>Deep dive into model generalization and overfitting concepts.</p>
-</div>
-
-<div class="blog-card">
-<h3>How NLP Powers Resume Screening</h3>
-<p>Exploring TF-IDF and similarity scoring in recruitment AI.</p>
-</div>
-
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-<div class="contact-container">
+<div class="contact">
 
-<a href="mailto:aravindyouremail@gmail.com" class="contact-item">
-<i class="fas fa-envelope"></i> Email
-</a>
+<p><i class="fas fa-envelope"></i>
+<a href="mailto:aravinddamera848@gmail.com">
+aravinddamera848@gmail.com
+</a></p>
 
-<a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" class="contact-item">
-<i class="fab fa-linkedin"></i> LinkedIn
-</a>
+<p><i class="fab fa-github"></i>
+<a href="https://github.com/Aravind-848" target="_blank">
+github.com/Aravind-848
+</a></p>
 
-<a href="https://github.com/Aravind-848" target="_blank" class="contact-item">
-<i class="fab fa-github"></i> GitHub
-</a>
+<p><i class="fab fa-linkedin"></i>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">
+linkedin.com/in/YOUR-LINKEDIN-ID
+</a></p>
+
+<p><i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/917672077323" target="_blank">
++91 7672077323
+</a></p>
 
 </div>
 </section>
 
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank">
+<footer>
+<div class="footer-icons">
+<a href="https://github.com/Aravind-848" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="mailto:aravinddamera848@gmail.com"><i class="fas fa-envelope"></i></a>
+<a href="https://wa.me/917672077323" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<p>© 2026 Aravind Damera | AI/ML Engineer</p>
+</footer>
+
+<a href="https://wa.me/917672077323" class="whatsapp-float" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-
-/* Typing Effect */
-const words = ["AI Systems.", "ML Models.", "Intelligent Applications."];
-let i = 0;
-let j = 0;
-let current = "";
-let deleting = false;
-
-function typeEffect(){
-current = words[i];
-if(!deleting){
-document.getElementById("typing").textContent = current.slice(0, ++j);
-if(j === current.length){
-deleting = true;
-setTimeout(typeEffect, 1000);
-return;
+particlesJS("particles-js", {
+particles:{
+number:{value:80},
+size:{value:3},
+color:{value:"#00f0ff"},
+line_linked:{enable:true,distance:150,color:"#00f0ff",opacity:0.4,width:1},
+move:{enable:true,speed:2}
 }
-}else{
-document.getElementById("typing").textContent = current.slice(0, --j);
-if(j === 0){
-deleting = false;
-i = (i+1) % words.length;
-}
-}
-setTimeout(typeEffect, deleting ? 60 : 120);
-}
+});
 
-typeEffect();
-
-/* Scroll Reveal */
-const sections = document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-const top = sec.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-sec.classList.add("active");
+document.querySelectorAll("section").forEach(sec=>{
+const rect=sec.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+sec.classList.add("show");
 }
 });
 });
-
-/* Mobile Navbar Toggle + Auto Close */
-const toggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-toggle.addEventListener("click",()=>{
-navLinks.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-link.addEventListener("click",()=>{
-navLinks.classList.remove("active");
-});
-});
-
 </script>
 
 </body>
