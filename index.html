@@ -1,299 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== SEO OPTIMIZATION ===== -->
-<title>Aravind Damera | AI/ML Engineer | Machine Learning Developer Portfolio</title>
+<title>Aravind Damera | AI/ML Engineer</title>
 
-<meta name="description" content="Aravind Damera is an AI/ML Engineer specializing in Machine Learning, NLP, Deep Learning, and predictive analytics. Explore projects including customer churn prediction, resume intelligence platform, and medical diagnosis expert system.">
-
-<meta name="keywords" content="AI Engineer, Machine Learning Engineer, NLP Developer, Deep Learning, Python Developer, Scikit-learn, TensorFlow, Flask, Data Science Portfolio, AIML Student">
-
+<meta name="description" content="Aravind Damera - AI/ML Engineer specializing in Machine Learning, NLP, Predictive Modeling and Intelligent Systems.">
+<meta name="keywords" content="AI Engineer, Machine Learning Engineer, NLP, Data Science, Python Developer, AI Portfolio">
 <meta name="author" content="Aravind Damera">
 
-<!-- Open Graph for LinkedIn -->
-<meta property="og:title" content="Aravind Damera | AI/ML Engineer Portfolio">
-<meta property="og:description" content="AI/ML Engineer specializing in predictive modeling, NLP systems, and scalable ML deployment.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aravind-848.github.io/aravind-portfolio/">
+<link rel="canonical" href="https://yourdomain.com/">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aravind Damera | AI/ML Engineer">
-<meta name="twitter:description" content="Machine Learning Engineer Portfolio with real-world AI projects and performance metrics.">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
 body{
-font-family:'Inter',sans-serif;
-background:#0a0f1c;
 color:white;
 overflow-x:hidden;
 }
 
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
+/* ANIMATED GRADIENT BACKGROUND */
+body{
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#00f5d4);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
 }
 
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* NAVBAR */
 nav{
-display:flex;
-justify-content:space-between;
-padding:20px 60px;
 position:fixed;
 width:100%;
-background:rgba(10,15,28,0.9);
+background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 10%;
 z-index:1000;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:0.3s;
-font-size:14px;
+.logo{
+font-weight:700;
+font-size:20px;
 }
 
-nav a:hover{color:#00f0ff;}
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
 
+.nav-links a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00f5d4;
+}
+
+/* MOBILE TOGGLE */
+.menu-toggle{
+display:none;
+font-size:22px;
+cursor:pointer;
+}
+
+/* HERO */
 .hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding-top:180px;
-padding-bottom:100px;
-padding-left:20px;
-padding-right:20px;
+padding:0 20px;
 }
 
 .hero h1{
 font-size:42px;
 margin-bottom:20px;
-color:#00f0ff;
+}
+
+.hero span{
+color:#00f5d4;
 }
 
 .hero p{
-color:#ccc;
-max-width:700px;
-margin:auto;
-margin-bottom:30px;
-font-size:16px;
-line-height:1.6;
+max-width:600px;
+margin-bottom:25px;
 }
 
 .btn{
-display:inline-block;
-padding:10px 24px;
-margin:8px;
-background:#00f0ff;
+background:#00f5d4;
 color:black;
+padding:12px 25px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
+margin:10px;
 transition:0.3s;
-font-size:14px;
 }
 
-.btn:hover{background:white;}
+.btn:hover{
+transform:scale(1.08);
+}
 
+/* SECTIONS */
 section{
-padding:80px 40px;
-text-align:center;
+padding:80px 10%;
+opacity:0;
+transform:translateY(50px);
+transition:1s ease;
+}
+
+section.active{
+opacity:1;
+transform:translateY(0);
 }
 
 h2{
+text-align:center;
 margin-bottom:40px;
-font-size:30px;
-color:#00f0ff;
 }
 
-.skills, .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+/* PROJECTS */
+.projects{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
 }
 
-.skill-card, .project-card{
-background:rgba(255,255,255,0.05);
+.project-card{
+background:rgba(255,255,255,0.1);
 padding:25px;
-border-radius:20px;
-transition:0.3s;
-text-align:left;
+border-radius:15px;
+width:300px;
+backdrop-filter:blur(8px);
+transition:0.4s;
 }
 
-.skill-card:hover, .project-card:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 40px rgba(0,240,255,0.25);
+.project-card:hover{
+transform:translateY(-10px);
 }
 
-.skill-card i{
-font-size:32px;
-margin-bottom:15px;
-color:#00f0ff;
+/* BLOG */
+.blog-card{
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
 }
 
-.project-card h3{
-color:#00f0ff;
-margin-bottom:12px;
+/* CONTACT */
+.contact-container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.project-card p{
-font-size:14px;
-line-height:1.6;
-margin-bottom:8px;
-}
-
-.contact p{
-margin:14px 0;
-font-size:15px;
-}
-
-.contact i{
-color:#00f0ff;
-margin-right:8px;
-}
-
-footer{
-background:#050914;
-padding:30px 15px;
-text-align:center;
-margin-top:40px;
-}
-
-.footer-icons a{
+.contact-item{
+background:rgba(255,255,255,0.1);
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
 color:white;
-margin:0 12px;
-font-size:20px;
 transition:0.3s;
 }
 
-.footer-icons a:hover{color:#00f0ff;}
-
-footer p{
-margin-top:15px;
-color:#aaa;
-font-size:14px;
+.contact-item:hover{
+background:#00f5d4;
+color:black;
 }
 
-/* ===== MOBILE OPTIMIZATION ===== */
-@media (max-width:768px){
-
-nav{
-flex-direction:column;
+/* WHATSAPP FLOAT */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
 padding:15px;
-text-align:center;
+border-radius:50%;
+font-size:22px;
+color:white;
 }
 
-nav div:last-child{
-margin-top:10px;
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.nav-links{
+position:absolute;
+top:70px;
+right:-100%;
+background:black;
+flex-direction:column;
+width:200px;
+padding:20px;
+transition:0.5s;
 }
 
-.hero h1{
-font-size:30px;
+.nav-links.active{
+right:0;
 }
 
-.hero p{
-font-size:14px;
-}
-
-section{
-padding:60px 20px;
-}
-
-h2{
-font-size:24px;
-}
-
-.btn{
-font-size:13px;
-padding:8px 20px;
+.menu-toggle{
+display:block;
 }
 
 }
+
 </style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
-
 <nav>
-<div><strong>Aravind Damera</strong></div>
-<div>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</div>
+<div class="logo">Aravind Damera</div>
+<ul class="nav-links">
+<li><a href="#projects">Projects</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="menu-toggle"><i class="fas fa-bars"></i></div>
 </nav>
 
-<div class="hero">
-<h1>AI / ML Engineer</h1>
-<p>
-AI/ML Engineer specializing in predictive modeling, NLP systems, deep learning,
-and scalable machine learning deployment using Python, Scikit-learn, and TensorFlow.
-</p>
-
-<a href="assets/resume.pdf" class="btn" download>
+<section class="hero">
+<h1>I build <span id="typing"></span></h1>
+<p>AI/ML Engineer focused on scalable intelligent systems, predictive modeling, and NLP applications.</p>
+<a href="resume.pdf" download class="btn">
 <i class="fas fa-download"></i> Download Resume
 </a>
-
-<a href="#contact" class="btn">Hire Me</a>
-</div>
-
-<section id="about">
-<h2>Professional Summary</h2>
-<p>
-Computer Science (AIML) student with hands-on experience building ML pipelines,
-deploying Flask-based applications, and designing rule-based inference systems.
-Strong understanding of data preprocessing, model optimization, and evaluation metrics.
-</p>
-</section>
-
-<section id="skills">
-<h2>Technical Skills</h2>
-<div class="skills">
-
-<div class="skill-card">
-<i class="fas fa-code"></i>
-<h3>Programming</h3>
-<p>Python, Java, C</p>
-</div>
-
-<div class="skill-card">
-<i class="fas fa-brain"></i>
-<h3>Machine Learning</h3>
-<p>Regression, Classification, Feature Engineering, Scikit-learn</p>
-</div>
-
-<div class="skill-card">
-<i class="fas fa-network-wired"></i>
-<h3>Deep Learning</h3>
-<p>TensorFlow, Keras, Neural Networks</p>
-</div>
-
-<div class="skill-card">
-<i class="fas fa-database"></i>
-<h3>Data & Analytics</h3>
-<p>Pandas, NumPy, Matplotlib, Power BI</p>
-</div>
-
-<div class="skill-card">
-<i class="fas fa-server"></i>
-<h3>Backend & Tools</h3>
-<p>Flask, Git, GitHub, REST APIs</p>
-</div>
-
-</div>
+<a href="https://github.com/Aravind-848" target="_blank" class="btn">
+<i class="fab fa-github"></i> GitHub
+</a>
 </section>
 
 <section id="projects">
@@ -302,64 +261,84 @@ Strong understanding of data preprocessing, model optimization, and evaluation m
 
 <div class="project-card">
 <h3>Customer Churn Prediction</h3>
-<p>End-to-end ML pipeline with preprocessing, feature selection, and tuning.</p>
-<p><strong>Accuracy:</strong> 87% | <strong>F1:</strong> 0.84</p>
-<p><strong>Tech:</strong> Python, Pandas, Scikit-learn</p>
-<a href="https://github.com/Aravind-848/customer-churn-prediction" target="_blank" class="btn">
-<i class="fab fa-github"></i> View Code
-</a>
+<p>Accuracy: 87% | F1: 0.84</p>
+<a href="#" class="btn">Live Demo</a>
+<a href="#" class="btn">GitHub</a>
 </div>
 
 <div class="project-card">
 <h3>Resume Intelligence Platform</h3>
-<p>NLP-powered resume screening system using TF-IDF and similarity scoring.</p>
-<p><strong>Matching Accuracy:</strong> 85%</p>
-<p><strong>Tech:</strong> Flask, NLP</p>
-<a href="https://github.com/Aravind-848/resume-intelligence-platform" target="_blank" class="btn">
-<i class="fab fa-github"></i> View Code
-</a>
+<p>NLP Matching Accuracy: 85%</p>
+<a href="#" class="btn">Live Demo</a>
+<a href="#" class="btn">GitHub</a>
 </div>
 
-<div class="project-card">
-<h3>Medical Diagnosis Expert System</h3>
-<p>Rule-based inference engine using Horn-clause logic.</p>
-<p><strong>Validation Accuracy:</strong> 90%</p>
-<p><strong>Tech:</strong> Python, Rule-Based Logic</p>
-<a href="https://github.com/Aravind-848/medical-diagnosis-system" target="_blank" class="btn">
-<i class="fab fa-github"></i> View Code
-</a>
 </div>
+</section>
 
+<section id="blog">
+<h2>AI Blog</h2>
+<div class="blog-card">
+<h3>Understanding Bias-Variance Tradeoff</h3>
+<p>Deep dive into model generalization and overfitting concepts.</p>
+</div>
+<div class="blog-card">
+<h3>How NLP Powers Resume Screening</h3>
+<p>Exploring TF-IDF and similarity scoring in recruitment AI.</p>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-<div class="contact">
-<p><i class="fas fa-envelope"></i> aravinddamera848@gmail.com</p>
-<p><i class="fab fa-github"></i> github.com/Aravind-848</p>
-<p><i class="fab fa-whatsapp"></i> +91 7672077323</p>
+<div class="contact-container">
+<a href="mailto:yourmail@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
+<a href="https://www.linkedin.com/" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+<a href="https://github.com/Aravind-848" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
 </div>
 </section>
 
-<footer>
-<div class="footer-icons">
-<a href="https://github.com/Aravind-848" target="_blank"><i class="fab fa-github"></i></a>
-<a href="mailto:aravinddamera848@gmail.com"><i class="fas fa-envelope"></i></a>
-</div>
-<p>© 2026 Aravind Damera | AI/ML Engineer</p>
-</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-particlesJS("particles-js", {
-particles:{
-number:{value:60},
-size:{value:3},
-color:{value:"#00f0ff"},
-line_linked:{enable:true,distance:150,color:"#00f0ff",opacity:0.3,width:1},
-move:{enable:true,speed:2}
+
+/* Typing Effect */
+const text = ["AI Systems.", "ML Models.", "Intelligent Applications."];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+if(count === text.length){ count = 0; }
+currentText = text[count];
+letter = currentText.slice(0, ++index);
+document.getElementById("typing").textContent = letter;
+if(letter.length === currentText.length){
+count++;
+index = 0;
+}
+setTimeout(type, 120);
+})();
+
+/* Scroll Reveal */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("active");
 }
 });
+});
+
+/* Mobile Navbar Toggle */
+const toggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggle.addEventListener("click",()=>{
+navLinks.classList.toggle("active");
+});
+
 </script>
 
 </body>
