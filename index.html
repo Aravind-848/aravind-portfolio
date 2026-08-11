@@ -4,184 +4,1293 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Aravind Damera — AI/ML Engineer and Computer Science student building intelligent, practical software systems."
-  >
-
-  <meta name="theme-color" content="#070b18">
+  <meta name="description"
+        content="Aravind Damera — AI/ML Engineer and Software Developer Portfolio">
 
   <title>Aravind Damera | AI/ML Engineer</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
+    :root {
+      --bg: #050816;
+      --bg2: #080d22;
+      --card: rgba(13, 20, 48, 0.62);
+      --line: rgba(125, 150, 255, 0.18);
+      --text: #eef2ff;
+      --muted: #9ba7c7;
+      --cyan: #55e7ff;
+      --purple: #9b6cff;
+      --pink: #ff5fd2;
+      --green: #5dffb2;
+      --shadow: 0 20px 70px rgba(0, 0, 0, .45);
+    }
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(85,231,255,.09), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(155,108,255,.11), transparent 30%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x: hidden;
+    }
+
+    /* ==============================
+       NEURAL BACKGROUND
+    ============================== */
+
+    #neuralCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      opacity: .72;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(rgba(130,150,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(130,150,255,.035) 1px, transparent 1px);
+
+      background-size: 55px 55px;
+
+      mask-image:
+        linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .glow {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(85,231,255,.08),
+          transparent 65%
+        );
+
+      transform: translate(-50%, -50%);
+      filter: blur(10px);
+    }
+
+    /* ==============================
+       NAVBAR
+    ============================== */
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: min(1120px, calc(100% - 28px));
+
+      padding: 12px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      background: rgba(5, 8, 22, .68);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow: var(--shadow);
+
+      z-index: 50;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      font-size: 1.1rem;
+
+      color: white;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 6px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+
+      font-size: .85rem;
+
+      padding: 9px 12px;
+      border-radius: 10px;
+
+      transition: .25s ease;
+    }
+
+    nav a:hover {
+      color: white;
+      background: rgba(85,231,255,.08);
+    }
+
+    .menu {
+      display: none;
+
+      border: 1px solid var(--line);
+      background: transparent;
+      color: white;
+
+      padding: 8px 10px;
+      border-radius: 9px;
+
+      cursor: pointer;
+    }
+
+    /* ==============================
+       SECTIONS
+    ============================== */
+
+    section {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+      padding: 110px 0;
+    }
+
+    /* ==============================
+       HERO
+    ============================== */
+
+    #home {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+
+      padding-top: 150px;
+    }
+
+    .hero {
+      display: grid;
+
+      grid-template-columns: 1.25fr .75fr;
+
+      gap: 50px;
+
+      align-items: center;
+
+      width: 100%;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 9px;
+
+      color: var(--cyan);
+
+      font-size: .78rem;
+      font-weight: 700;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 18px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 18px var(--green);
+
+      animation: pulse 1.7s infinite;
+    }
+
+    @keyframes pulse {
+
+      50% {
+        transform: scale(1.6);
+        opacity: .45;
+      }
+
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+
+      line-height: .92;
+
+      letter-spacing: -.07em;
+
+      max-width: 800px;
+    }
+
+    h1 .gradient {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          #a97cff 48%,
+          var(--pink)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-text {
+
+      color: var(--muted);
+
+      max-width: 680px;
+
+      font-size: 1.05rem;
+
+      line-height: 1.8;
+
+      margin: 25px 0;
+    }
+
+    .typed {
+      color: white;
+      font-weight: 700;
+    }
+
+    .cursor {
+      color: var(--cyan);
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink {
+
+      50% {
+        opacity: 0;
+      }
+
+    }
+
+    /* ==============================
+       BUTTONS
+    ============================== */
+
+    .buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 28px;
+    }
+
+    .btn {
+
+      text-decoration: none;
+
+      color: white;
+
+      border: 1px solid var(--line);
+
+      padding: 13px 18px;
+
+      border-radius: 12px;
+
+      font-size: .84rem;
+
+      font-weight: 700;
+
+      background: rgba(255,255,255,.025);
+
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(85,231,255,.5);
+
+      box-shadow:
+        0 10px 35px rgba(85,231,255,.12);
+    }
+
+    .btn.primary {
+
+      color: #031018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          #9c7cff
+        );
+
+      border: none;
+    }
+
+    /* ==============================
+       HERO ORB
+    ============================== */
+
+    .hero-card {
+
+      height: 430px;
+
+      position: relative;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+    .orb {
+
+      width: 210px;
+      height: 210px;
+
+      border-radius: 50%;
+
+      background:
+
+        radial-gradient(
+          circle at 35% 30%,
+          white,
+          var(--cyan) 10%,
+          #706cff 38%,
+          #171333 68%,
+          transparent 70%
+        );
+
+      box-shadow:
+
+        0 0 45px rgba(85,231,255,.4),
+        0 0 120px rgba(155,108,255,.25);
+
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-16px) rotate(4deg);
+      }
+
+    }
+
+    .ring {
+
+      position: absolute;
+
+      width: 300px;
+      height: 110px;
+
+      border: 1px solid rgba(85,231,255,.45);
+
+      border-radius: 50%;
+
+      transform:
+        rotate(-22deg);
+
+      animation: orbit 7s linear infinite;
+    }
+
+    .ring.two {
+
+      width: 350px;
+      height: 140px;
+
+      border-color:
+        rgba(255,95,210,.28);
+
+      transform:
+        rotate(62deg);
+
+      animation-direction: reverse;
+    }
+
+    @keyframes orbit {
+
+      from {
+        transform:
+          rotate(-22deg)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          rotate(-22deg)
+          rotate(360deg);
+      }
+
+    }
+
+    .mini-label {
+
+      position: absolute;
+
+      padding: 8px 12px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 9px;
+
+      background:
+        rgba(5,8,22,.75);
+
+      backdrop-filter: blur(12px);
+
+      color: #dfe6ff;
+
+      font-size: .65rem;
+
+      font-weight: 700;
+
+      letter-spacing: .08em;
+    }
+
+    .label1 {
+      top: 55px;
+      right: 15px;
+    }
+
+    .label2 {
+      bottom: 80px;
+      left: 10px;
+    }
+
+    .label3 {
+      bottom: 25px;
+      right: 20px;
+    }
+
+    /* ==============================
+       SECTION TITLES
+    ============================== */
+
+    .section-title {
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+
+      color: var(--cyan);
+
+      font-size: .7rem;
+
+      font-weight: 800;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size:
+        clamp(2rem, 5vw, 3.6rem);
+
+      letter-spacing: -.055em;
+
+      margin-top: 8px;
+    }
+
+    .section-title p {
+
+      color: var(--muted);
+
+      line-height: 1.7;
+
+      max-width: 700px;
+
+      margin-top: 12px;
+    }
+
+    /* ==============================
+       CARDS
+    ============================== */
+
+    .card {
+
+      border: 1px solid var(--line);
+
+      background: var(--card);
+
+      backdrop-filter: blur(14px);
+
+      border-radius: 22px;
+
+      padding: 28px;
+
+      box-shadow: var(--shadow);
+    }
+
+    /* ==============================
+       ABOUT
+    ============================== */
+
+    .about {
+
+      display: grid;
+
+      grid-template-columns: .8fr 1.2fr;
+
+      gap: 28px;
+    }
+
+    .profile-code {
+
+      font-family:
+        "Space Grotesk",
+        monospace;
+
+      color: #c8d2f1;
+
+      line-height: 1.9;
+
+      font-size: .9rem;
+    }
+
+    .key {
+      color: var(--pink);
+    }
+
+    .value {
+      color: var(--cyan);
+    }
+
+    .about-copy {
+
+      color: var(--muted);
+
+      line-height: 1.9;
+
+      font-size: 1rem;
+    }
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-top: 22px;
+    }
+
+    .stat {
+
+      border: 1px solid var(--line);
+
+      border-radius: 15px;
+
+      padding: 17px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .stat strong {
+
+      display: block;
+
+      font-family:
+        "Space Grotesk";
+
+      font-size: 1.4rem;
+
+      color: white;
+    }
+
+    .stat span {
+
+      color: var(--muted);
+
+      font-size: .73rem;
+    }
+
+    /* ==============================
+       SKILLS
+    ============================== */
+
+    .skills {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .skill {
+
+      padding: 22px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 18px;
+
+      background:
+        rgba(12,18,45,.55);
+
+      transition: .3s ease;
+    }
+
+    .skill:hover {
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(85,231,255,.38);
+    }
+
+    .skill-icon {
+
+      font-size: 1.7rem;
+
+      margin-bottom: 15px;
+    }
+
+    .skill h3 {
+
+      font-size: 1rem;
+
+      margin-bottom: 7px;
+    }
+
+    .skill p {
+
+      color: var(--muted);
+
+      font-size: .82rem;
+
+      line-height: 1.6;
+    }
+
+    /* ==============================
+       PROJECTS
+    ============================== */
+
+    .projects {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .project {
+
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 290px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+    }
+
+    .project::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      right: -70px;
+      top: -70px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(85,231,255,.18),
+          transparent 68%
+        );
+    }
+
+    .project-number {
+
+      color: var(--cyan);
+
+      font-family:
+        "Space Grotesk";
+
+      font-size: .75rem;
+
+      letter-spacing: .15em;
+    }
+
+    .project h3 {
+
+      font-family:
+        "Space Grotesk";
+
+      font-size: 1.45rem;
+
+      margin: 20px 0 10px;
+    }
+
+    .project p {
+
+      color: var(--muted);
+
+      line-height: 1.7;
+
+      font-size: .84rem;
+    }
+
+    .tags {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin: 18px 0;
+    }
+
+    .tag {
+
+      font-size: .68rem;
+
+      padding: 6px 8px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 7px;
+
+      color: #bdc8e9;
+    }
+
+    .project-link {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      font-size: .8rem;
+    }
+
+    /* ==============================
+       TIMELINE
+    ============================== */
+
+    .timeline {
+
+      position: relative;
+
+      max-width: 850px;
+
+      margin: auto;
+    }
+
+    .timeline::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 10px;
+
+      top: 0;
+
+      bottom: 0;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          var(--cyan),
+          transparent
+        );
+    }
+
+    .timeline-item {
+
+      position: relative;
+
+      padding-left: 42px;
+
+      margin-bottom: 28px;
+    }
+
+    .dot {
+
+      position: absolute;
+
+      left: 4px;
+
+      top: 7px;
+
+      width: 13px;
+
+      height: 13px;
+
+      border-radius: 50%;
+
+      background: var(--cyan);
+
+      box-shadow:
+        0 0 18px rgba(85,231,255,.7);
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+    }
+
+    .timeline-item .date {
+
+      color: var(--cyan);
+
+      font-size: .75rem;
+
+      margin: 6px 0 10px;
+    }
+
+    .timeline-item p {
+
+      color: var(--muted);
+
+      line-height: 1.7;
+
+      font-size: .86rem;
+    }
+
+    /* ==============================
+       CONTACT
+    ============================== */
+
+    .contact {
+
+      text-align: center;
+
+      padding-bottom: 70px;
+    }
+
+    .contact-box {
+
+      max-width: 850px;
+
+      margin: auto;
+
+      padding: 55px 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 28px;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(85,231,255,.1),
+          transparent 40%
+        ),
+
+        rgba(10,15,38,.65);
+
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+
+      font-family:
+        "Space Grotesk";
+
+      font-size:
+        clamp(2rem, 5vw, 3.8rem);
+
+      letter-spacing: -.06em;
+    }
+
+    .contact-box p {
+
+      color: var(--muted);
+
+      margin:
+        16px auto 25px;
+
+      max-width: 600px;
+
+      line-height: 1.7;
+    }
+
+    .socials {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+
+      border-top:
+        1px solid var(--line);
+
+      padding: 25px 16px;
+
+      text-align: center;
+
+      color: #68749a;
+
+      font-size: .75rem;
+    }
+
+    /* ==============================
+       ANIMATIONS
+    ============================== */
+
+    .reveal {
+
+      opacity: 0;
+
+      transform:
+        translateY(25px);
+
+      transition:
+        .7s ease;
+    }
+
+    .reveal.show {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+    /* ==============================
+       BACK TO TOP
+    ============================== */
+
+    #topBtn {
+
+      position: fixed;
+
+      right: 22px;
+
+      bottom: 22px;
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--line);
+
+      background:
+        rgba(8,13,34,.8);
+
+      color: white;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: .25s;
+
+      z-index: 20;
+    }
+
+    #topBtn.visible {
+
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+    /* ==============================
+       RESPONSIVE
+    ============================== */
+
+    @media (max-width: 850px) {
+
+      nav ul {
+
+        display: none;
+
+        position: absolute;
+
+        top: 62px;
+
+        left: 0;
+
+        right: 0;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        background:
+          rgba(5,8,22,.95);
+
+        border: 1px solid var(--line);
+
+        border-radius: 14px;
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .hero,
+      .about {
+
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+
+        margin: 10px auto 0;
+
+        max-width: 330px;
+      }
+
+      .skills,
+      .projects {
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      section {
+        padding: 80px 0;
+      }
+
+      #home {
+        padding-top: 130px;
+      }
+
+      h1 {
+        font-size: 3.3rem;
+      }
+
+      .skills,
+      .projects {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .stats {
+
+        grid-template-columns:
+          1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div id="particles-js" aria-hidden="true"></div>
-  <div class="noise" aria-hidden="true"></div>
+  <!-- ==============================
+       ANIMATED NEURAL BACKGROUND
+  ============================== -->
+
+  <canvas id="neuralCanvas"></canvas>
+
+  <div class="grid"></div>
+
+  <div class="glow" id="mouseGlow"></div>
 
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- ==============================
+       NAVIGATION
+  ============================== -->
 
-  <header class="navbar" id="navbar">
+  <nav>
 
-    <a class="brand" href="#home" aria-label="Aravind Damera home">
-      <span>AD</span>
-      <i></i>
+    <a href="#home" class="brand">
+      ARAVIND<span>.DEV</span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Main navigation">
+    <button class="menu" id="menuBtn">
+      ☰
+    </button>
 
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <ul id="navLinks">
 
-    </nav>
+      <li>
+        <a href="#home">Home</a>
+      </li>
 
-    <div class="nav-actions">
+      <li>
+        <a href="#about">About</a>
+      </li>
 
-      <a class="hire-btn" href="#contact">
-        Hire Me
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
+      <li>
+        <a href="#skills">Skills</a>
+      </li>
 
-      <button
-        class="theme-btn"
-        id="themeBtn"
-        aria-label="Toggle theme"
-      >
-        <i class="fa-solid fa-sun"></i>
-      </button>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
 
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Open navigation"
-      >
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <li>
+        <a href="#journey">Journey</a>
+      </li>
 
-    </div>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
 
-  </header>
+    </ul>
 
+  </nav>
 
-  <!-- ================= MAIN ================= -->
 
   <main>
 
+    <!-- ==============================
+         HERO
+    ============================== -->
 
-    <!-- ================= HERO ================= -->
+    <section id="home">
 
-    <section class="hero section-visible" id="home">
+      <div class="hero">
 
-      <div class="hero-grid">
+        <div class="reveal">
 
-        <div class="hero-copy reveal">
+          <div class="eyebrow">
 
-          <div class="availability">
-            <span></span>
-            Open to Internship &amp; Entry-Level Opportunities
+            <span class="pulse"></span>
+
+            Available for opportunities
+
           </div>
 
-          <p class="eyebrow">
-            AI / ML • SOFTWARE DEVELOPMENT
-          </p>
 
           <h1>
-            Hi, I'm <span>Aravind</span>
+
+            Building the
             <br>
-            Damera <b>✦</b>
+
+            <span class="gradient">
+              intelligent web.
+            </span>
+
           </h1>
 
-          <h2>
-            AI/ML Engineer &amp; Computer Science Student
-          </h2>
 
           <p class="hero-text">
-            I build intelligent applications, predictive models,
-            and practical software solutions using Python, Java,
-            machine learning, SQL, and modern development tools.
+
+            Hi, I'm
+            <strong>Aravind Damera</strong>
+
+            — an AI/ML Engineer & Software Developer
+            focused on
+
+            <span class="typed" id="typed"></span>
+
+            <span class="cursor">|</span>.
+
           </p>
 
 
-          <div class="hero-buttons">
+          <div class="buttons">
 
             <a
-              class="gradient-btn"
-              href="assets/resume.pdf"
-              download
+              class="btn primary"
+              href="#projects"
             >
-              <i class="fa-solid fa-download"></i>
-              Download Resume
+              Explore Projects ↗
             </a>
 
             <a
-              class="outline-btn"
-              href="#contact"
-            >
-              <i class="fa-regular fa-envelope"></i>
-              Contact Me
-            </a>
-
-          </div>
-
-
-          <div class="socials">
-
-            <a
+              class="btn"
               href="https://github.com/Aravind-848"
               target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
+              rel="noopener"
             >
-              <i class="fa-brands fa-github"></i>
+              GitHub ↗
             </a>
 
             <a
-              href="mailto:aravinddamera848@gmail.com"
-              aria-label="Email"
-            >
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-
-            <a
-              href="https://wa.me/917672077323"
+              class="btn"
+              href="resume.pdf"
               target="_blank"
-              rel="noreferrer"
-              aria-label="WhatsApp"
             >
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-
-            <!-- Replace # with your LinkedIn URL -->
-            <a
-              href="#"
-              class="linkedin-placeholder"
-              aria-label="LinkedIn"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
+              Resume ↗
             </a>
 
           </div>
@@ -189,218 +1298,520 @@
         </div>
 
 
-        <!-- HERO VISUAL -->
+        <!-- AI ORB -->
 
-        <div class="hero-visual reveal">
+        <div class="hero-card reveal">
 
-          <div class="orb orb-one"></div>
-          <div class="orb orb-two"></div>
+          <div class="orb"></div>
 
-          <div class="profile-ring">
+          <div class="ring"></div>
 
-            <div class="profile-core">
+          <div class="ring two"></div>
 
-              <div class="initials">
-                AD
-              </div>
 
-              <div class="mini-label">
-                AI / ML
-              </div>
+          <div class="mini-label label1">
+            AI / ML
+          </div>
+
+          <div class="mini-label label2">
+            JAVA + DSA
+          </div>
+
+          <div class="mini-label label3">
+            BUILD → LEARN → SHIP
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         ABOUT
+    ============================== -->
+
+    <section id="about">
+
+      <div class="section-title reveal">
+
+        <small>
+          01 / About
+        </small>
+
+        <h2>
+          More than just code.
+        </h2>
+
+      </div>
+
+
+      <div class="about">
+
+
+        <div class="card reveal">
+
+          <div class="profile-code">
+
+            <span class="key">
+              const
+            </span>
+
+            developer = {
+
+            <br>
+
+            &nbsp;&nbsp;name:
+            <span class="value">
+              "Aravind Damera"
+            </span>,
+
+            <br>
+
+            &nbsp;&nbsp;role:
+            <span class="value">
+              "AI/ML Engineer"
+            </span>,
+
+            <br>
+
+            &nbsp;&nbsp;education:
+            <span class="value">
+              "B.Tech"
+            </span>,
+
+            <br>
+
+            &nbsp;&nbsp;focus:
+            <span class="value">
+              "AI + Software"
+            </span>,
+
+            <br>
+
+            &nbsp;&nbsp;school:
+            <span class="value">
+              "ZPHS Pulukurthy"
+            </span>,
+
+            <br>
+
+            &nbsp;&nbsp;ssc:
+            <span class="value">
+              "9.7 / 10"
+            </span>
+
+            <br>
+
+            };
+
+          </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+          <p class="about-copy">
+
+            I'm a B.Tech final-year student building my path
+            across software development, data structures,
+            AI/ML and intelligent automation.
+
+            I enjoy turning ideas into practical projects
+            and continuously improving through problem solving.
+
+            <br><br>
+
+            My goal is simple:
+
+            <strong>
+              build useful technology, learn fast,
+              and create software that actually solves problems.
+            </strong>
+
+          </p>
+
+
+          <div class="stats">
+
+            <div class="stat">
+
+              <strong>
+                Java
+              </strong>
+
+              <span>
+                Core Development
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                DSA
+              </strong>
+
+              <span>
+                Problem Solving
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                AI/ML
+              </strong>
+
+              <span>
+                Intelligent Systems
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SKILLS
+    ============================== -->
+
+    <section id="skills">
+
+      <div class="section-title reveal">
+
+        <small>
+          02 / Tech Stack
+        </small>
+
+        <h2>
+          Tools I build with.
+        </h2>
+
+        <p>
+          A practical stack focused on software engineering,
+          data and AI.
+        </p>
+
+      </div>
+
+
+      <div class="skills">
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            ☕
+          </div>
+
+          <h3>
+            Java
+          </h3>
+
+          <p>
+            Core Java, OOP, Collections,
+            Exception Handling and problem solving.
+          </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            🧠
+          </div>
+
+          <h3>
+            DSA
+          </h3>
+
+          <p>
+            Arrays, Strings, Hashing, Binary Search,
+            Sliding Window, Greedy and more.
+          </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            🤖
+          </div>
+
+          <h3>
+            AI / ML
+          </h3>
+
+          <p>
+            Machine learning concepts,
+            data preparation and intelligent applications.
+          </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            🐍
+          </div>
+
+          <h3>
+            Python
+          </h3>
+
+          <p>
+            Programming, data handling and
+            automation-oriented development.
+          </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            🗄️
+          </div>
+
+          <h3>
+            SQL
+          </h3>
+
+          <p>
+            Queries, joins, filtering,
+            aggregation and database fundamentals.
+          </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+          <div class="skill-icon">
+            ⌘
+          </div>
+
+          <h3>
+            Git & GitHub
+          </h3>
+
+          <p>
+            Version control, repositories,
+            collaboration and project deployment.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PROJECTS
+    ============================== -->
+
+    <section id="projects">
+
+      <div class="section-title reveal">
+
+        <small>
+          03 / Selected Work
+        </small>
+
+        <h2>
+          Things I've built.
+        </h2>
+
+        <p>
+          Replace these cards with your real projects
+          and GitHub links.
+        </p>
+
+      </div>
+
+
+      <div class="projects">
+
+
+        <article class="card project reveal">
+
+          <div>
+
+            <span class="project-number">
+              PROJECT / 01
+            </span>
+
+            <h3>
+              AI / ML Project
+            </h3>
+
+            <p>
+              An intelligent application designed
+              to solve a real-world problem using
+              data and machine learning.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                Python
+              </span>
+
+              <span class="tag">
+                ML
+              </span>
+
+              <span class="tag">
+                Data
+              </span>
 
             </div>
 
           </div>
 
 
-          <div class="tech-float react">
-            <i class="fa-brands fa-python"></i>
-            Python
-          </div>
-
-          <div class="tech-float node">
-            <i class="fa-brands fa-java"></i>
-            Java
-          </div>
-
-          <div class="tech-float db">
-            <i class="fa-solid fa-database"></i>
-            SQL
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- HERO STATS -->
-
-      <div class="stats reveal">
-
-        <div>
-          <strong>Java + DSA</strong>
-          <span>Core Focus</span>
-        </div>
-
-        <div>
-          <strong>AI / ML</strong>
-          <span>Specialization</span>
-        </div>
-
-        <div>
-          <strong>SQL</strong>
-          <span>Database Skills</span>
-        </div>
-
-        <div>
-          <strong>Git &amp; GitHub</strong>
-          <span>Version Control</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about" class="section">
-
-      <div class="section-heading reveal">
-
-        <span>ABOUT ME</span>
-
-        <h2>
-          Who I Am &amp;
-          <em>What I Build</em>
-        </h2>
-
-        <p>
-          A curious engineer focused on turning ideas
-          into useful, reliable software.
-        </p>
-
-      </div>
-
-
-      <div class="about-grid">
-
-        <article class="glass-card about-card reveal">
-
-          <h3>
-            Professional Summary
-          </h3>
-
-          <p>
-            I'm a Computer Science Engineering student
-            specializing in AI &amp; Machine Learning.
-            I enjoy solving programming and data problems,
-            building predictive systems, and developing
-            applications that connect intelligent models
-            with real-world use cases.
-          </p>
-
-          <p>
-            My current technical focus includes
-            <strong>
-              Java, DSA, Python, SQL, machine learning,
-              Git/GitHub, and web development
-            </strong>.
-            I am actively looking for opportunities where
-            I can contribute, learn from experienced
-            engineers, and grow into a strong software/AI engineer.
-          </p>
+          <a
+            class="project-link"
+            href="https://github.com/Aravind-848"
+            target="_blank"
+          >
+            View on GitHub ↗
+          </a>
 
         </article>
 
 
-        <div class="about-cards reveal">
+        <article class="card project reveal">
 
-          <div class="mini-card">
+          <div>
 
-            <i class="fa-solid fa-code"></i>
+            <span class="project-number">
+              PROJECT / 02
+            </span>
 
-            <h4>
-              Programming
-            </h4>
+            <h3>
+              Java Application
+            </h3>
 
             <p>
-              Java, Python, C, C++
+              A clean Java project demonstrating
+              object-oriented programming, collections
+              and practical application logic.
             </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                Java
+              </span>
+
+              <span class="tag">
+                OOP
+              </span>
+
+              <span class="tag">
+                SQL
+              </span>
+
+            </div>
 
           </div>
 
 
-          <div class="mini-card">
+          <a
+            class="project-link"
+            href="https://github.com/Aravind-848"
+            target="_blank"
+          >
+            View on GitHub ↗
+          </a>
 
-            <i class="fa-solid fa-brain"></i>
+        </article>
 
-            <h4>
-              AI &amp; ML
-            </h4>
+
+        <article class="card project reveal">
+
+          <div>
+
+            <span class="project-number">
+              PROJECT / 03
+            </span>
+
+            <h3>
+              DSA Practice
+            </h3>
 
             <p>
-              Predictive modeling, NLP, ML workflows
+              A growing collection of algorithm solutions
+              covering common interview patterns and
+              coding challenges.
             </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                DSA
+              </span>
+
+              <span class="tag">
+                Algorithms
+              </span>
+
+              <span class="tag">
+                Java
+              </span>
+
+            </div>
 
           </div>
 
 
-          <div class="mini-card">
+          <a
+            class="project-link"
+            href="https://github.com/Aravind-848"
+            target="_blank"
+          >
+            Explore Code ↗
+          </a>
 
-            <i class="fa-solid fa-database"></i>
-
-            <h4>
-              Data
-            </h4>
-
-            <p>
-              SQL, MySQL, NumPy, Pandas
-            </p>
-
-          </div>
-
-
-          <div class="mini-card">
-
-            <i class="fa-solid fa-code-branch"></i>
-
-            <h4>
-              Engineering
-            </h4>
-
-            <p>
-              Git, GitHub, APIs, deployment
-            </p>
-
-          </div>
-
-        </div>
+        </article>
 
       </div>
 
     </section>
 
 
+    <!-- ==============================
+         JOURNEY
+    ============================== -->
 
-    <!-- ================= EXPERIENCE ================= -->
+    <section id="journey">
 
-    <section id="experience" class="section">
+      <div class="section-title reveal">
 
-      <div class="section-heading reveal">
-
-        <span>EXPERIENCE</span>
+        <small>
+          04 / Journey
+        </small>
 
         <h2>
-          Learning Through
-          <em>Real Projects</em>
+          Learning. Building. Evolving.
         </h2>
-
-        <p>
-          Hands-on development across programming,
-          AI/ML, data, and web technologies.
-        </p>
 
       </div>
 
@@ -408,1004 +1819,134 @@
       <div class="timeline">
 
 
-        <article class="timeline-item reveal">
+        <div class="timeline-item reveal">
 
-          <div class="timeline-dot">
-
-            <i class="fa-solid fa-laptop-code"></i>
-
-          </div>
-
-
-          <div class="glass-card timeline-card">
-
-            <div class="timeline-top">
-
-              <div>
-
-                <span class="pill">
-                  ENGINEERING FOCUS
-                </span>
-
-                <h3>
-                  AI/ML &amp; Software Development
-                </h3>
-
-              </div>
-
-              <span class="muted">
-                Current
-              </span>
-
-            </div>
-
-
-            <p>
-              Building portfolio projects around
-              machine learning, NLP, predictive analytics,
-              Java/DSA, SQL, and application development.
-            </p>
-
-
-            <ul>
-
-              <li>
-                Practicing data structures and algorithms
-                using Java.
-              </li>
-
-              <li>
-                Developing machine-learning solutions
-                with Python and common data-science libraries.
-              </li>
-
-              <li>
-                Building practical projects and maintaining
-                code with Git and GitHub.
-              </li>
-
-            </ul>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-dot purple">
-
-            <i class="fa-solid fa-chart-line"></i>
-
-          </div>
-
-
-          <div class="glass-card timeline-card">
-
-            <div class="timeline-top">
-
-              <div>
-
-                <span class="pill purple-pill">
-                  PROJECT-BASED LEARNING
-                </span>
-
-                <h3>
-                  Data Analytics &amp;
-                  Predictive Modeling
-                </h3>
-
-              </div>
-
-              <span class="muted">
-                Academic
-              </span>
-
-            </div>
-
-
-            <p>
-              Worked through regression, classification,
-              data preprocessing, model evaluation, and
-              analytics concepts through academic and
-              personal practice.
-            </p>
-
-
-            <ul>
-
-              <li>
-                Explored linear and logistic regression,
-                decision trees, and model evaluation.
-              </li>
-
-              <li>
-                Used Python data tools for analysis
-                and visualization.
-              </li>
-
-              <li>
-                Applied analytical thinking to real-world
-                prediction problems.
-              </li>
-
-            </ul>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section id="projects" class="section">
-
-      <div class="section-heading reveal">
-
-        <span>FEATURED WORK</span>
-
-        <h2>
-          Projects That
-          <em>Solve Problems</em>
-        </h2>
-
-        <p>
-          A selection of AI/ML and software projects
-          from my learning journey.
-        </p>
-
-      </div>
-
-
-      <div class="project-grid">
-
-
-        <!-- PROJECT 01 -->
-
-        <article class="project-card featured reveal">
-
-          <div class="project-top">
-
-            <span class="project-number">
-              01
-            </span>
-
-            <div>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Project link"
-              >
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <div class="project-visual churn">
-
-            <i class="fa-solid fa-chart-line"></i>
-
-            <span>
-              ML MODEL
-            </span>
-
-          </div>
-
-
-          <div class="project-body">
-
-            <span class="pill">
-              MACHINE LEARNING
-            </span>
-
-            <h3>
-              Customer Churn Prediction
-            </h3>
-
-            <p>
-              Machine-learning solution for predicting
-              telecom customer churn and identifying
-              patterns that can support retention decisions.
-            </p>
-
-            <div class="tags">
-
-              <span>Python</span>
-              <span>Scikit-Learn</span>
-              <span>Pandas</span>
-              <span>ML</span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- PROJECT 02 -->
-
-        <article class="project-card reveal">
-
-          <div class="project-top">
-
-            <span class="project-number">
-              02
-            </span>
-
-            <div>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <div class="project-visual resume-ai">
-
-            <i class="fa-solid fa-file-lines"></i>
-
-            <span>
-              NLP
-            </span>
-
-          </div>
-
-
-          <div class="project-body">
-
-            <span class="pill purple-pill">
-              AI / NLP
-            </span>
-
-            <h3>
-              Resume Intelligence Platform
-            </h3>
-
-            <p>
-              NLP-based resume screening concept designed
-              to extract relevant information and support
-              faster candidate evaluation.
-            </p>
-
-            <div class="tags">
-
-              <span>Python</span>
-              <span>NLP</span>
-              <span>Flask</span>
-              <span>HTML/CSS</span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- PROJECT 03 -->
-
-        <article class="project-card reveal">
-
-          <div class="project-top">
-
-            <span class="project-number">
-              03
-            </span>
-
-            <div>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-
-              <a
-                href="https://github.com/Aravind-848"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <div class="project-visual medical">
-
-            <i class="fa-solid fa-stethoscope"></i>
-
-            <span>
-              EXPERT SYSTEM
-            </span>
-
-          </div>
-
-
-          <div class="project-body">
-
-            <span class="pill green-pill">
-              AI APPLICATION
-            </span>
-
-            <h3>
-              Medical Diagnosis Expert System
-            </h3>
-
-            <p>
-              Rule-based inference concept that maps
-              symptoms to possible conditions to demonstrate
-              knowledge representation and decision logic.
-            </p>
-
-            <div class="tags">
-
-              <span>Python</span>
-              <span>Inference</span>
-              <span>AI</span>
-              <span>Decision Logic</span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-
-      <a
-        class="center-btn"
-        href="https://github.com/Aravind-848"
-        target="_blank"
-        rel="noreferrer"
-      >
-        View GitHub
-        <i class="fa-brands fa-github"></i>
-      </a>
-
-    </section>
-
-
-
-    <!-- ================= SKILLS ================= -->
-
-    <section id="skills" class="section">
-
-      <div class="section-heading reveal">
-
-        <span>TECHNICAL ARSENAL</span>
-
-        <h2>
-          Skills I
-          <em>Work With</em>
-        </h2>
-
-        <p>
-          A practical toolkit for software development,
-          AI/ML, data, and problem solving.
-        </p>
-
-      </div>
-
-
-      <div class="skill-grid">
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon blue">
-            <i class="fa-solid fa-code"></i>
-          </div>
+          <span class="dot"></span>
 
           <h3>
-            Programming
+            B.Tech — Final Year
           </h3>
 
-          <div class="tags">
-
-            <span>Java</span>
-            <span>Python</span>
-            <span>C</span>
-            <span>C++</span>
-            <span>SQL</span>
-
+          <div class="date">
+            CURRENT
           </div>
-
-        </article>
-
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon purple">
-            <i class="fa-solid fa-diagram-project"></i>
-          </div>
-
-          <h3>
-            DSA
-          </h3>
-
-          <div class="tags">
-
-            <span>Arrays</span>
-            <span>Strings</span>
-            <span>Linked Lists</span>
-            <span>Stacks</span>
-            <span>Queues</span>
-            <span>Trees</span>
-            <span>Hashing</span>
-            <span>Sorting</span>
-            <span>Recursion</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon cyan">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-
-          <h3>
-            Machine Learning
-          </h3>
-
-          <div class="tags">
-
-            <span>Scikit-Learn</span>
-            <span>XGBoost</span>
-            <span>Feature Engineering</span>
-            <span>Model Evaluation</span>
-            <span>NLP</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon green">
-            <i class="fa-solid fa-chart-simple"></i>
-          </div>
-
-          <h3>
-            Data &amp; Visualization
-          </h3>
-
-          <div class="tags">
-
-            <span>Pandas</span>
-            <span>NumPy</span>
-            <span>Matplotlib</span>
-            <span>Seaborn</span>
-            <span>Statistics</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon pink">
-            <i class="fa-solid fa-database"></i>
-          </div>
-
-          <h3>
-            Java &amp; Database
-          </h3>
-
-          <div class="tags">
-
-            <span>Collections</span>
-            <span>JDBC</span>
-            <span>Java I/O</span>
-            <span>Exceptions</span>
-            <span>MySQL</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="glass-card skill-card reveal">
-
-          <div class="skill-icon orange">
-            <i class="fa-solid fa-cloud"></i>
-          </div>
-
-          <h3>
-            Web &amp; Tools
-          </h3>
-
-          <div class="tags">
-
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Flask</span>
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>APIs</span>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= EDUCATION ================= -->
-
-    <section id="education" class="section">
-
-      <div class="section-heading reveal">
-
-        <span>EDUCATION</span>
-
-        <h2>
-          Academic
-          <em>Background</em>
-        </h2>
-
-        <p>
-          Computer science foundations with a focus
-          on AI/ML and software engineering.
-        </p>
-
-      </div>
-
-
-      <div class="education-list">
-
-
-        <!-- BTECH -->
-
-        <article class="glass-card education-card reveal">
-
-          <div class="degree-badge">
-            B.Tech
-          </div>
-
-          <div class="education-main">
-
-            <span class="eyebrow">
-              BACHELOR OF TECHNOLOGY
-            </span>
-
-            <h3>
-              Computer Science Engineering
-              (AI &amp; Machine Learning)
-            </h3>
-
-            <p class="institution">
-
-              <i class="fa-solid fa-building-columns"></i>
-
-              Vignan Institute of Technology and Science
-
-            </p>
-
-
-            <div class="education-meta">
-
-              <span>
-                <i class="fa-regular fa-calendar"></i>
-                2022 – 2027
-              </span>
-
-              <span>
-                <i class="fa-solid fa-location-dot"></i>
-                Telangana, India
-              </span>
-
-              <span class="status">
-                Currently Pursuing
-              </span>
-
-            </div>
-
-
-            <div class="coursework">
-
-              <b>
-                Relevant Coursework
-              </b>
-
-              <span>
-                Data Structures &amp; Algorithms
-              </span>
-
-              <span>
-                DBMS
-              </span>
-
-              <span>
-                Machine Learning
-              </span>
-
-              <span>
-                Statistics
-              </span>
-
-              <span>
-                Computer Networks
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- INTERMEDIATE -->
-
-        <article class="glass-card education-card compact reveal">
-
-          <div class="degree-badge">
-            INTER
-          </div>
-
-          <div class="education-main">
-
-            <span class="eyebrow">
-              INTERMEDIATE • MPC
-            </span>
-
-            <h3>
-              Intermediate Education
-            </h3>
-
-            <p class="institution">
-
-              <i class="fa-solid fa-school"></i>
-
-              TSWRJC
-
-            </p>
-
-
-            <div class="education-meta">
-
-              <span>
-                741 / 1000
-              </span>
-
-              <span>
-                74.1%
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- SSC -->
-
-        <article class="glass-card education-card compact reveal">
-
-          <div class="degree-badge">
-            SSC
-          </div>
-
-          <div class="education-main">
-
-            <span class="eyebrow">
-              SECONDARY SCHOOL CERTIFICATE
-            </span>
-
-            <h3>
-              SSC
-            </h3>
-
-            <p class="institution">
-
-              <i class="fa-solid fa-school"></i>
-
-              ZPHS Pulukurthy
-
-            </p>
-
-
-            <div class="education-meta">
-
-              <span>
-                CGPA 9.7 / 10
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= GITHUB ================= -->
-
-    <section id="github" class="section">
-
-      <div class="section-heading reveal">
-
-        <span>
-          OPEN SOURCE
-        </span>
-
-        <h2>
-          GitHub
-          <em>Profile</em>
-        </h2>
-
-        <p>
-          Explore my code, projects, experiments,
-          and learning journey.
-        </p>
-
-      </div>
-
-
-      <div class="github-card glass-card reveal">
-
-        <div class="github-icon">
-          <i class="fa-brands fa-github"></i>
-        </div>
-
-
-        <div>
-
-          <h3>
-            Aravind-848
-          </h3>
 
           <p>
-            Source code, problem-solving practice,
-            AI/ML projects, and development work.
+            Building technical depth in software development,
+            AI/ML, databases and problem solving.
           </p>
 
         </div>
 
 
-        <a
-          class="gradient-btn"
-          href="https://github.com/Aravind-848"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Visit GitHub
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
+        <div class="timeline-item reveal">
+
+          <span class="dot"></span>
+
+          <h3>
+            DSA & Competitive Problem Solving
+          </h3>
+
+          <div class="date">
+            ONGOING
+          </div>
+
+          <p>
+            Practicing patterns such as Two Sum,
+            Sliding Window, Binary Search, Greedy,
+            Hashing and more.
+          </p>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+          <span class="dot"></span>
+
+          <h3>
+            AI / ML Exploration
+          </h3>
+
+          <div class="date">
+            BUILDING
+          </div>
+
+          <p>
+            Exploring machine learning and AI-driven
+            applications with a focus on practical projects.
+          </p>
+
+        </div>
 
       </div>
 
     </section>
 
 
+    <!-- ==============================
+         CONTACT
+    ============================== -->
 
-    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact">
 
-    <section
-      id="contact"
-      class="section contact-section"
-    >
+      <div class="contact-box reveal">
 
-      <div class="section-heading reveal">
-
-        <span>
-          CONTACT
-        </span>
-
-        <h2>
-          Let's
-          <em>Connect</em>
-        </h2>
-
-        <p>
-          Open to internships, entry-level software roles,
-          AI/ML opportunities, and meaningful projects.
-        </p>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-
-        <!-- CONTACT INFO -->
-
-        <div class="glass-card contact-card reveal">
-
-          <h3>
-            Get In Touch
-          </h3>
-
-          <p>
-            Have an opportunity, project idea,
-            or technical collaboration in mind?
-            Reach out.
-          </p>
-
-
-          <a
-            class="contact-line"
-            href="mailto:aravinddamera848@gmail.com"
-          >
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <span>
-              aravinddamera848@gmail.com
-            </span>
-
-          </a>
-
-
-          <a
-            class="contact-line"
-            href="tel:+917672077323"
-          >
-
-            <i class="fa-solid fa-phone"></i>
-
-            <span>
-              +91 7672077323
-            </span>
-
-          </a>
-
-
-          <div class="contact-actions">
-
-            <a
-              href="https://github.com/Aravind-848"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="fa-brands fa-github"></i>
-              GitHub
-            </a>
-
-
-            <a
-              href="https://wa.me/917672077323"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-              WhatsApp
-            </a>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- CONTACT FORM -->
-
-        <form
-          class="glass-card contact-form reveal"
-          id="contactForm"
+        <div
+          class="section-title"
+          style="margin-bottom:20px"
         >
-
-          <label>
-
-            Name
-
-            <input
-              id="name"
-              type="text"
-              placeholder="Your name"
-              required
-            >
-
-          </label>
-
-
-          <label>
-
-            Email
-
-            <input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            >
-
-          </label>
-
-
-          <label>
-
-            Message
-
-            <textarea
-              id="message"
-              rows="5"
-              placeholder="Let's build something..."
-              required
-            ></textarea>
-
-          </label>
-
-
-          <button
-            class="gradient-btn"
-            type="submit"
-          >
-
-            Send Message
-
-            <i class="fa-regular fa-paper-plane"></i>
-
-          </button>
-
 
           <small>
-            Sending opens your email client —
-            no backend required.
+            05 / Contact
           </small>
 
-        </form>
+          <h2>
+            Let's build something intelligent.
+          </h2>
+
+        </div>
+
+
+        <p>
+
+          Open to internships, entry-level software roles,
+          AI/ML opportunities, collaborations and
+          interesting projects.
+
+        </p>
+
+
+        <div class="socials">
+
+          <a
+            class="btn primary"
+            href="mailto:aravinddamera848@gmail.com"
+          >
+            Email Me ↗
+          </a>
+
+
+          <a
+            class="btn"
+            href="https://github.com/Aravind-848"
+            target="_blank"
+          >
+            GitHub ↗
+          </a>
+
+
+          <!-- Replace # with your LinkedIn URL -->
+
+          <a
+            class="btn"
+            href="#"
+            target="_blank"
+          >
+            LinkedIn ↗
+          </a>
+
+        </div>
 
       </div>
 
@@ -1414,132 +1955,609 @@
   </main>
 
 
-
-  <!-- ================= FOOTER ================= -->
+  <!-- ==============================
+       FOOTER
+  ============================== -->
 
   <footer>
 
-    <div class="footer-inner">
-
-      <div>
-
-        <a
-          class="brand"
-          href="#home"
-        >
-          <span>AD</span>
-          <i></i>
-        </a>
-
-        <p>
-          AI/ML Engineer • Software Developer
-        </p>
-
-        <small>
-          Building intelligent solutions with code,
-          data, and curiosity.
-        </small>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#experience">
-          Experience
-        </a>
-
-        <a href="#projects">
-          Projects
-        </a>
-
-        <a href="#skills">
-          Skills
-        </a>
-
-        <a href="#education">
-          Education
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-      </div>
-
-
-      <div class="footer-social">
-
-        <a
-          href="https://github.com/Aravind-848"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a
-          href="mailto:aravinddamera848@gmail.com"
-        >
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-
-        <a
-          href="https://wa.me/917672077323"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-      © 2026 Aravind Damera.
-      Built with HTML, CSS &amp; JavaScript.
-
-    </div>
+    © 2026 Aravind Damera ·
+    Built with HTML, CSS & JavaScript ·
+    Designed for the future.
 
   </footer>
 
 
-
-  <!-- ================= FLOATING BUTTONS ================= -->
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/917672077323"
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Chat on WhatsApp"
-  >
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-
   <button
-    class="back-top"
-    id="backTop"
-    aria-label="Back to top"
+    id="topBtn"
+    title="Back to top"
   >
-    <i class="fa-solid fa-arrow-up"></i>
+    ↑
   </button>
 
 
+  <!-- ==============================
+       JAVASCRIPT
+  ============================== -->
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <script>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    /* ==============================
+       MOBILE MENU
+    ============================== */
 
-  <script src="script.js"></script>
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle("open");
+
+      }
+    );
+
+
+    document
+      .querySelectorAll("#navLinks a")
+      .forEach(a => {
+
+        a.addEventListener(
+          "click",
+          () => {
+
+            navLinks.classList.remove("open");
+
+          }
+        );
+
+      });
+
+
+    /* ==============================
+       TYPING ANIMATION
+    ============================== */
+
+    const words = [
+
+      "AI-powered applications",
+
+      "scalable software",
+
+      "clean Java solutions",
+
+      "data-driven ideas",
+
+      "intelligent automation"
+
+    ];
+
+
+    let wi = 0;
+
+    let ci = 0;
+
+    let deleting = false;
+
+
+    const typed =
+      document.getElementById("typed");
+
+
+    function typeLoop() {
+
+      const word = words[wi];
+
+
+      typed.textContent = deleting
+        ? word.slice(0, --ci)
+        : word.slice(0, ++ci);
+
+
+      let delay =
+        deleting
+          ? 35
+          : 75;
+
+
+      if (
+        !deleting &&
+        ci === word.length
+      ) {
+
+        delay = 1500;
+
+        deleting = true;
+
+      }
+
+
+      else if (
+        deleting &&
+        ci === 0
+      ) {
+
+        deleting = false;
+
+        wi =
+          (wi + 1) %
+          words.length;
+
+        delay = 400;
+
+      }
+
+
+      setTimeout(
+        typeLoop,
+        delay
+      );
+
+    }
+
+
+    typeLoop();
+
+
+    /* ==============================
+       SCROLL REVEAL
+    ============================== */
+
+    const observer =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "show"
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: .12
+        }
+
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(el => {
+
+        observer.observe(el);
+
+      });
+
+
+    /* ==============================
+       MOUSE GLOW
+    ============================== */
+
+    const mouseGlow =
+      document.getElementById(
+        "mouseGlow"
+      );
+
+
+    window.addEventListener(
+      "mousemove",
+      e => {
+
+        mouseGlow.style.left =
+          e.clientX + "px";
+
+        mouseGlow.style.top =
+          e.clientY + "px";
+
+      }
+    );
+
+
+    /* ==============================
+       BACK TO TOP
+    ============================== */
+
+    const topBtn =
+      document.getElementById(
+        "topBtn"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        topBtn.classList.toggle(
+          "visible",
+          window.scrollY > 600
+        );
+
+      }
+    );
+
+
+    topBtn.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+    /* ==============================
+       NEURAL NETWORK CANVAS
+    ============================== */
+
+    const canvas =
+      document.getElementById(
+        "neuralCanvas"
+      );
+
+
+    const ctx =
+      canvas.getContext("2d");
+
+
+    let nodes = [];
+
+
+    let mouse = {
+      x: null,
+      y: null
+    };
+
+
+    function resizeCanvas() {
+
+      canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+      canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+
+      canvas.style.width =
+        window.innerWidth + "px";
+
+
+      canvas.style.height =
+        window.innerHeight + "px";
+
+
+      ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+      );
+
+
+      createNodes();
+
+    }
+
+
+    function createNodes() {
+
+      nodes = [];
+
+
+      const count =
+        Math.min(
+          85,
+          Math.floor(
+            window.innerWidth / 15
+          )
+        );
+
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        nodes.push({
+
+          x:
+            Math.random() *
+            window.innerWidth,
+
+          y:
+            Math.random() *
+            window.innerHeight,
+
+          vx:
+            (Math.random() - .5) *
+            .25,
+
+          vy:
+            (Math.random() - .5) *
+            .25,
+
+          r:
+            Math.random() *
+            1.8 + .7
+
+        });
+
+      }
+
+    }
+
+
+    function drawNetwork() {
+
+      ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+      );
+
+
+      /* Draw nodes */
+
+      for (
+        const n of nodes
+      ) {
+
+        n.x += n.vx;
+
+        n.y += n.vy;
+
+
+        if (
+          n.x < 0 ||
+          n.x > window.innerWidth
+        ) {
+
+          n.vx *= -1;
+
+        }
+
+
+        if (
+          n.y < 0 ||
+          n.y > window.innerHeight
+        ) {
+
+          n.vy *= -1;
+
+        }
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+          n.x,
+          n.y,
+          n.r,
+          0,
+          Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+          "rgba(85,231,255,.72)";
+
+
+        ctx.fill();
+
+      }
+
+
+      /* Connect nodes */
+
+      for (
+        let i = 0;
+        i < nodes.length;
+        i++
+      ) {
+
+        for (
+          let j = i + 1;
+          j < nodes.length;
+          j++
+        ) {
+
+          const a =
+            nodes[i];
+
+          const b =
+            nodes[j];
+
+
+          const dx =
+            a.x - b.x;
+
+          const dy =
+            a.y - b.y;
+
+
+          const dist =
+            Math.sqrt(
+              dx * dx +
+              dy * dy
+            );
+
+
+          if (
+            dist < 125
+          ) {
+
+            const alpha =
+              (1 - dist / 125) *
+              .25;
+
+
+            ctx.strokeStyle =
+              `rgba(120,145,255,${alpha})`;
+
+
+            ctx.lineWidth =
+              .7;
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+              a.x,
+              a.y
+            );
+
+            ctx.lineTo(
+              b.x,
+              b.y
+            );
+
+            ctx.stroke();
+
+          }
+
+        }
+
+      }
+
+
+      /* Connect nodes to cursor */
+
+      if (
+        mouse.x !== null
+      ) {
+
+        for (
+          const n of nodes
+        ) {
+
+          const dx =
+            n.x - mouse.x;
+
+          const dy =
+            n.y - mouse.y;
+
+
+          const dist =
+            Math.sqrt(
+              dx * dx +
+              dy * dy
+            );
+
+
+          if (
+            dist < 170
+          ) {
+
+            ctx.strokeStyle =
+              `rgba(
+                85,
+                231,
+                255,
+                ${(1 - dist / 170) * .45}
+              )`;
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+              n.x,
+              n.y
+            );
+
+            ctx.lineTo(
+              mouse.x,
+              mouse.y
+            );
+
+            ctx.stroke();
+
+          }
+
+        }
+
+      }
+
+
+      requestAnimationFrame(
+        drawNetwork
+      );
+
+    }
+
+
+    /* ==============================
+       TRACK MOUSE
+    ============================== */
+
+    window.addEventListener(
+      "mousemove",
+      e => {
+
+        mouse.x =
+          e.clientX;
+
+        mouse.y =
+          e.clientY;
+
+      }
+    );
+
+
+    window.addEventListener(
+      "mouseleave",
+      () => {
+
+        mouse.x = null;
+
+        mouse.y = null;
+
+      }
+    );
+
+
+    /* ==============================
+       INITIALIZE
+    ============================== */
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+
+    resizeCanvas();
+
+    drawNetwork();
+
+  </script>
 
 </body>
 </html>
