@@ -1,364 +1,1545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aravind Damera | AI/ML Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <meta
+    name="description"
+    content="Aravind Damera — AI/ML Engineer and Computer Science student building intelligent, practical software systems."
+  >
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+  <meta name="theme-color" content="#070b18">
 
-body{
-font-family:'Inter',sans-serif;
-background:#0a0f1c;
-color:white;
-overflow-x:hidden;
-}
+  <title>Aravind Damera | AI/ML Engineer</title>
 
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px 60px;
-position:fixed;
-width:100%;
-background:rgba(10,15,28,0.85);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:0.3s;
-}
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 
-nav a:hover{
-color:#00f0ff;
-}
-
-.hero{
-text-align:center;
-padding-top:180px;
-padding-bottom:120px;
-}
-
-.hero h1{
-font-size:50px;
-margin-bottom:20px;
-color:#00f0ff;
-text-shadow:
-0 0 5px #00f0ff,
-0 0 10px #00f0ff,
-0 0 20px #00f0ff,
-0 0 40px #00f0ff;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{ text-shadow:0 0 10px #00f0ff,0 0 20px #00f0ff;}
-to{ text-shadow:0 0 20px #00f0ff,0 0 40px #00f0ff;}
-}
-
-.hero p{
-color:#ccc;
-max-width:650px;
-margin:auto;
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:12px 30px;
-margin:10px;
-background:#00f0ff;
-color:black;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
-
-.btn:hover{
-background:white;
-}
-
-section{
-padding:100px 80px;
-text-align:center;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-margin-bottom:40px;
-font-size:32px;
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.project-card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:20px;
-transition:0.3s;
-}
-
-.project-card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(0,240,255,0.3);
-}
-
-.contact p{
-margin:18px 0;
-font-size:18px;
-}
-
-.contact i{
-color:#00f0ff;
-margin-right:10px;
-}
-
-.contact a{
-color:white;
-text-decoration:none;
-transition:0.3s;
-}
-
-.contact a:hover{
-color:#00f0ff;
-}
-
-.whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-box-shadow:0 4px 15px rgba(0,0,0,0.4);
-z-index:1000;
-transition:0.3s;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.1);
-}
-
-footer{
-background:#050914;
-padding:40px 20px;
-text-align:center;
-}
-
-.footer-icons a{
-color:white;
-margin:0 15px;
-font-size:22px;
-transition:0.3s;
-}
-
-.footer-icons a:hover{
-color:#00f0ff;
-}
-
-footer p{
-margin-top:20px;
-color:#aaa;
-}
-</style>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="particles-js"></div>
+  <!-- Background -->
+  <div id="particles-js" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
-<nav>
-<div><strong>Aravind Damera</strong></div>
-<div>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
 
-<div class="hero">
+  <!-- ================= NAVBAR ================= -->
 
-<h1>AI / ML Engineer</h1>
+  <header class="navbar" id="navbar">
 
-<p>
-Building intelligent AI systems, predictive models, and scalable machine learning solutions.
-</p>
+    <a class="brand" href="#home" aria-label="Aravind Damera home">
+      <span>AD</span>
+      <i></i>
+    </a>
 
-<a href="assets/resume.pdf" class="btn" download>
-<i class="fas fa-download"></i> Download Resume
-</a>
+    <nav class="desktop-nav" aria-label="Main navigation">
 
-<a href="#contact" class="btn">Hire Me</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
 
-</div>
+    </nav>
 
-<section id="about">
-<h2>About Me</h2>
-<p>
-Computer Science (AIML) student specializing in predictive modeling,
-NLP systems, and real-world AI applications.
-</p>
-</section>
+    <div class="nav-actions">
 
-<section id="skills">
-<h2>Technical Skills</h2>
-<div class="projects">
+      <a class="hire-btn" href="#contact">
+        Hire Me
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
 
-<div class="project-card">
-<h3>Programming</h3>
-<p>Python, C++, SQL</p>
-</div>
+      <button
+        class="theme-btn"
+        id="themeBtn"
+        aria-label="Toggle theme"
+      >
+        <i class="fa-solid fa-sun"></i>
+      </button>
 
-<div class="project-card">
-<h3>Machine Learning</h3>
-<p>Scikit-Learn, XGBoost, Feature Engineering, Model Evaluation</p>
-</div>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-<div class="project-card">
-<h3>Deep Learning</h3>
-<p>TensorFlow, Keras, Neural Networks</p>
-</div>
+    </div>
 
-<div class="project-card">
-<h3>Data & Visualization</h3>
-<p>Pandas, NumPy, Matplotlib, Seaborn</p>
-</div>
+  </header>
 
-<div class="project-card">
-<h3>Web & Deployment</h3>
-<p>Flask, HTML, CSS, GitHub Pages</p>
-</div>
 
-<div class="project-card">
-<h3>Core Concepts</h3>
-<p>NLP, Predictive Modeling, Statistics, Inference Systems</p>
-</div>
+  <!-- ================= MAIN ================= -->
 
-</div>
-</section>
+  <main>
 
-<section id="projects">
-<h2>Featured Projects</h2>
-<div class="projects">
 
-<div class="project-card">
-<h3>Customer Churn Prediction</h3>
-<p>Machine learning model predicting telecom churn.</p>
-</div>
+    <!-- ================= HERO ================= -->
 
-<div class="project-card">
-<h3>Resume Intelligence Platform</h3>
-<p>NLP-based resume screening system using Flask.</p>
-</div>
+    <section class="hero section-visible" id="home">
 
-<div class="project-card">
-<h3>Medical Diagnosis Expert System</h3>
-<p>Inference engine for symptom-based disease prediction.</p>
-</div>
+      <div class="hero-grid">
 
-</div>
-</section>
+        <div class="hero-copy reveal">
 
-<section id="contact">
-<h2>Contact</h2>
-<div class="contact">
+          <div class="availability">
+            <span></span>
+            Open to Internship &amp; Entry-Level Opportunities
+          </div>
 
-<p><i class="fas fa-envelope"></i>
-<a href="mailto:aravinddamera848@gmail.com">
-aravinddamera848@gmail.com
-</a></p>
+          <p class="eyebrow">
+            AI / ML • SOFTWARE DEVELOPMENT
+          </p>
 
-<p><i class="fab fa-github"></i>
-<a href="https://github.com/Aravind-848" target="_blank">
-github.com/Aravind-848
-</a></p>
+          <h1>
+            Hi, I'm <span>Aravind</span>
+            <br>
+            Damera <b>✦</b>
+          </h1>
 
-<p><i class="fab fa-linkedin"></i>
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">
-linkedin.com/in/YOUR-LINKEDIN-ID
-</a></p>
+          <h2>
+            AI/ML Engineer &amp; Computer Science Student
+          </h2>
 
-<p><i class="fab fa-whatsapp"></i>
-<a href="https://wa.me/917672077323" target="_blank">
-+91 7672077323
-</a></p>
+          <p class="hero-text">
+            I build intelligent applications, predictive models,
+            and practical software solutions using Python, Java,
+            machine learning, SQL, and modern development tools.
+          </p>
 
-</div>
-</section>
 
-<footer>
-<div class="footer-icons">
-<a href="https://github.com/Aravind-848" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="mailto:aravinddamera848@gmail.com"><i class="fas fa-envelope"></i></a>
-<a href="https://wa.me/917672077323" target="_blank"><i class="fab fa-whatsapp"></i></a>
-</div>
-<p>© 2026 Aravind Damera | AI/ML Engineer</p>
-</footer>
+          <div class="hero-buttons">
 
-<a href="https://wa.me/917672077323" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+            <a
+              class="gradient-btn"
+              href="assets/resume.pdf"
+              download
+            >
+              <i class="fa-solid fa-download"></i>
+              Download Resume
+            </a>
 
-<script>
-particlesJS("particles-js", {
-particles:{
-number:{value:80},
-size:{value:3},
-color:{value:"#00f0ff"},
-line_linked:{enable:true,distance:150,color:"#00f0ff",opacity:0.4,width:1},
-move:{enable:true,speed:2}
-}
-});
+            <a
+              class="outline-btn"
+              href="#contact"
+            >
+              <i class="fa-regular fa-envelope"></i>
+              Contact Me
+            </a>
 
-window.addEventListener("scroll",()=>{
-document.querySelectorAll("section").forEach(sec=>{
-const rect=sec.getBoundingClientRect();
-if(rect.top<window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-</script>
+          </div>
+
+
+          <div class="socials">
+
+            <a
+              href="https://github.com/Aravind-848"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="mailto:aravinddamera848@gmail.com"
+              aria-label="Email"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <a
+              href="https://wa.me/917672077323"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <!-- Replace # with your LinkedIn URL -->
+            <a
+              href="#"
+              class="linkedin-placeholder"
+              aria-label="LinkedIn"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual reveal">
+
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+
+          <div class="profile-ring">
+
+            <div class="profile-core">
+
+              <div class="initials">
+                AD
+              </div>
+
+              <div class="mini-label">
+                AI / ML
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="tech-float react">
+            <i class="fa-brands fa-python"></i>
+            Python
+          </div>
+
+          <div class="tech-float node">
+            <i class="fa-brands fa-java"></i>
+            Java
+          </div>
+
+          <div class="tech-float db">
+            <i class="fa-solid fa-database"></i>
+            SQL
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO STATS -->
+
+      <div class="stats reveal">
+
+        <div>
+          <strong>Java + DSA</strong>
+          <span>Core Focus</span>
+        </div>
+
+        <div>
+          <strong>AI / ML</strong>
+          <span>Specialization</span>
+        </div>
+
+        <div>
+          <strong>SQL</strong>
+          <span>Database Skills</span>
+        </div>
+
+        <div>
+          <strong>Git &amp; GitHub</strong>
+          <span>Version Control</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>ABOUT ME</span>
+
+        <h2>
+          Who I Am &amp;
+          <em>What I Build</em>
+        </h2>
+
+        <p>
+          A curious engineer focused on turning ideas
+          into useful, reliable software.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <article class="glass-card about-card reveal">
+
+          <h3>
+            Professional Summary
+          </h3>
+
+          <p>
+            I'm a Computer Science Engineering student
+            specializing in AI &amp; Machine Learning.
+            I enjoy solving programming and data problems,
+            building predictive systems, and developing
+            applications that connect intelligent models
+            with real-world use cases.
+          </p>
+
+          <p>
+            My current technical focus includes
+            <strong>
+              Java, DSA, Python, SQL, machine learning,
+              Git/GitHub, and web development
+            </strong>.
+            I am actively looking for opportunities where
+            I can contribute, learn from experienced
+            engineers, and grow into a strong software/AI engineer.
+          </p>
+
+        </article>
+
+
+        <div class="about-cards reveal">
+
+          <div class="mini-card">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h4>
+              Programming
+            </h4>
+
+            <p>
+              Java, Python, C, C++
+            </p>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h4>
+              AI &amp; ML
+            </h4>
+
+            <p>
+              Predictive modeling, NLP, ML workflows
+            </p>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h4>
+              Data
+            </h4>
+
+            <p>
+              SQL, MySQL, NumPy, Pandas
+            </p>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <i class="fa-solid fa-code-branch"></i>
+
+            <h4>
+              Engineering
+            </h4>
+
+            <p>
+              Git, GitHub, APIs, deployment
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section id="experience" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>EXPERIENCE</span>
+
+        <h2>
+          Learning Through
+          <em>Real Projects</em>
+        </h2>
+
+        <p>
+          Hands-on development across programming,
+          AI/ML, data, and web technologies.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+
+        <article class="timeline-item reveal">
+
+          <div class="timeline-dot">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+          </div>
+
+
+          <div class="glass-card timeline-card">
+
+            <div class="timeline-top">
+
+              <div>
+
+                <span class="pill">
+                  ENGINEERING FOCUS
+                </span>
+
+                <h3>
+                  AI/ML &amp; Software Development
+                </h3>
+
+              </div>
+
+              <span class="muted">
+                Current
+              </span>
+
+            </div>
+
+
+            <p>
+              Building portfolio projects around
+              machine learning, NLP, predictive analytics,
+              Java/DSA, SQL, and application development.
+            </p>
+
+
+            <ul>
+
+              <li>
+                Practicing data structures and algorithms
+                using Java.
+              </li>
+
+              <li>
+                Developing machine-learning solutions
+                with Python and common data-science libraries.
+              </li>
+
+              <li>
+                Building practical projects and maintaining
+                code with Git and GitHub.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="timeline-item reveal">
+
+          <div class="timeline-dot purple">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+          </div>
+
+
+          <div class="glass-card timeline-card">
+
+            <div class="timeline-top">
+
+              <div>
+
+                <span class="pill purple-pill">
+                  PROJECT-BASED LEARNING
+                </span>
+
+                <h3>
+                  Data Analytics &amp;
+                  Predictive Modeling
+                </h3>
+
+              </div>
+
+              <span class="muted">
+                Academic
+              </span>
+
+            </div>
+
+
+            <p>
+              Worked through regression, classification,
+              data preprocessing, model evaluation, and
+              analytics concepts through academic and
+              personal practice.
+            </p>
+
+
+            <ul>
+
+              <li>
+                Explored linear and logistic regression,
+                decision trees, and model evaluation.
+              </li>
+
+              <li>
+                Used Python data tools for analysis
+                and visualization.
+              </li>
+
+              <li>
+                Applied analytical thinking to real-world
+                prediction problems.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>FEATURED WORK</span>
+
+        <h2>
+          Projects That
+          <em>Solve Problems</em>
+        </h2>
+
+        <p>
+          A selection of AI/ML and software projects
+          from my learning journey.
+        </p>
+
+      </div>
+
+
+      <div class="project-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <article class="project-card featured reveal">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              01
+            </span>
+
+            <div>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Project link"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-visual churn">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>
+              ML MODEL
+            </span>
+
+          </div>
+
+
+          <div class="project-body">
+
+            <span class="pill">
+              MACHINE LEARNING
+            </span>
+
+            <h3>
+              Customer Churn Prediction
+            </h3>
+
+            <p>
+              Machine-learning solution for predicting
+              telecom customer churn and identifying
+              patterns that can support retention decisions.
+            </p>
+
+            <div class="tags">
+
+              <span>Python</span>
+              <span>Scikit-Learn</span>
+              <span>Pandas</span>
+              <span>ML</span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="project-card reveal">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              02
+            </span>
+
+            <div>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-visual resume-ai">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            <span>
+              NLP
+            </span>
+
+          </div>
+
+
+          <div class="project-body">
+
+            <span class="pill purple-pill">
+              AI / NLP
+            </span>
+
+            <h3>
+              Resume Intelligence Platform
+            </h3>
+
+            <p>
+              NLP-based resume screening concept designed
+              to extract relevant information and support
+              faster candidate evaluation.
+            </p>
+
+            <div class="tags">
+
+              <span>Python</span>
+              <span>NLP</span>
+              <span>Flask</span>
+              <span>HTML/CSS</span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="project-card reveal">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              03
+            </span>
+
+            <div>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a
+                href="https://github.com/Aravind-848"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-visual medical">
+
+            <i class="fa-solid fa-stethoscope"></i>
+
+            <span>
+              EXPERT SYSTEM
+            </span>
+
+          </div>
+
+
+          <div class="project-body">
+
+            <span class="pill green-pill">
+              AI APPLICATION
+            </span>
+
+            <h3>
+              Medical Diagnosis Expert System
+            </h3>
+
+            <p>
+              Rule-based inference concept that maps
+              symptoms to possible conditions to demonstrate
+              knowledge representation and decision logic.
+            </p>
+
+            <div class="tags">
+
+              <span>Python</span>
+              <span>Inference</span>
+              <span>AI</span>
+              <span>Decision Logic</span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <a
+        class="center-btn"
+        href="https://github.com/Aravind-848"
+        target="_blank"
+        rel="noreferrer"
+      >
+        View GitHub
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+    </section>
+
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>TECHNICAL ARSENAL</span>
+
+        <h2>
+          Skills I
+          <em>Work With</em>
+        </h2>
+
+        <p>
+          A practical toolkit for software development,
+          AI/ML, data, and problem solving.
+        </p>
+
+      </div>
+
+
+      <div class="skill-grid">
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon blue">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>
+            Programming
+          </h3>
+
+          <div class="tags">
+
+            <span>Java</span>
+            <span>Python</span>
+            <span>C</span>
+            <span>C++</span>
+            <span>SQL</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon purple">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+
+          <h3>
+            DSA
+          </h3>
+
+          <div class="tags">
+
+            <span>Arrays</span>
+            <span>Strings</span>
+            <span>Linked Lists</span>
+            <span>Stacks</span>
+            <span>Queues</span>
+            <span>Trees</span>
+            <span>Hashing</span>
+            <span>Sorting</span>
+            <span>Recursion</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon cyan">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+
+          <h3>
+            Machine Learning
+          </h3>
+
+          <div class="tags">
+
+            <span>Scikit-Learn</span>
+            <span>XGBoost</span>
+            <span>Feature Engineering</span>
+            <span>Model Evaluation</span>
+            <span>NLP</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon green">
+            <i class="fa-solid fa-chart-simple"></i>
+          </div>
+
+          <h3>
+            Data &amp; Visualization
+          </h3>
+
+          <div class="tags">
+
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>Seaborn</span>
+            <span>Statistics</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon pink">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>
+            Java &amp; Database
+          </h3>
+
+          <div class="tags">
+
+            <span>Collections</span>
+            <span>JDBC</span>
+            <span>Java I/O</span>
+            <span>Exceptions</span>
+            <span>MySQL</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="glass-card skill-card reveal">
+
+          <div class="skill-icon orange">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>
+            Web &amp; Tools
+          </h3>
+
+          <div class="tags">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Flask</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>APIs</span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= EDUCATION ================= -->
+
+    <section id="education" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>EDUCATION</span>
+
+        <h2>
+          Academic
+          <em>Background</em>
+        </h2>
+
+        <p>
+          Computer science foundations with a focus
+          on AI/ML and software engineering.
+        </p>
+
+      </div>
+
+
+      <div class="education-list">
+
+
+        <!-- BTECH -->
+
+        <article class="glass-card education-card reveal">
+
+          <div class="degree-badge">
+            B.Tech
+          </div>
+
+          <div class="education-main">
+
+            <span class="eyebrow">
+              BACHELOR OF TECHNOLOGY
+            </span>
+
+            <h3>
+              Computer Science Engineering
+              (AI &amp; Machine Learning)
+            </h3>
+
+            <p class="institution">
+
+              <i class="fa-solid fa-building-columns"></i>
+
+              Vignan Institute of Technology and Science
+
+            </p>
+
+
+            <div class="education-meta">
+
+              <span>
+                <i class="fa-regular fa-calendar"></i>
+                2022 – 2027
+              </span>
+
+              <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Telangana, India
+              </span>
+
+              <span class="status">
+                Currently Pursuing
+              </span>
+
+            </div>
+
+
+            <div class="coursework">
+
+              <b>
+                Relevant Coursework
+              </b>
+
+              <span>
+                Data Structures &amp; Algorithms
+              </span>
+
+              <span>
+                DBMS
+              </span>
+
+              <span>
+                Machine Learning
+              </span>
+
+              <span>
+                Statistics
+              </span>
+
+              <span>
+                Computer Networks
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- INTERMEDIATE -->
+
+        <article class="glass-card education-card compact reveal">
+
+          <div class="degree-badge">
+            INTER
+          </div>
+
+          <div class="education-main">
+
+            <span class="eyebrow">
+              INTERMEDIATE • MPC
+            </span>
+
+            <h3>
+              Intermediate Education
+            </h3>
+
+            <p class="institution">
+
+              <i class="fa-solid fa-school"></i>
+
+              TSWRJC
+
+            </p>
+
+
+            <div class="education-meta">
+
+              <span>
+                741 / 1000
+              </span>
+
+              <span>
+                74.1%
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- SSC -->
+
+        <article class="glass-card education-card compact reveal">
+
+          <div class="degree-badge">
+            SSC
+          </div>
+
+          <div class="education-main">
+
+            <span class="eyebrow">
+              SECONDARY SCHOOL CERTIFICATE
+            </span>
+
+            <h3>
+              SSC
+            </h3>
+
+            <p class="institution">
+
+              <i class="fa-solid fa-school"></i>
+
+              ZPHS Pulukurthy
+
+            </p>
+
+
+            <div class="education-meta">
+
+              <span>
+                CGPA 9.7 / 10
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= GITHUB ================= -->
+
+    <section id="github" class="section">
+
+      <div class="section-heading reveal">
+
+        <span>
+          OPEN SOURCE
+        </span>
+
+        <h2>
+          GitHub
+          <em>Profile</em>
+        </h2>
+
+        <p>
+          Explore my code, projects, experiments,
+          and learning journey.
+        </p>
+
+      </div>
+
+
+      <div class="github-card glass-card reveal">
+
+        <div class="github-icon">
+          <i class="fa-brands fa-github"></i>
+        </div>
+
+
+        <div>
+
+          <h3>
+            Aravind-848
+          </h3>
+
+          <p>
+            Source code, problem-solving practice,
+            AI/ML projects, and development work.
+          </p>
+
+        </div>
+
+
+        <a
+          class="gradient-btn"
+          href="https://github.com/Aravind-848"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Visit GitHub
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section
+      id="contact"
+      class="section contact-section"
+    >
+
+      <div class="section-heading reveal">
+
+        <span>
+          CONTACT
+        </span>
+
+        <h2>
+          Let's
+          <em>Connect</em>
+        </h2>
+
+        <p>
+          Open to internships, entry-level software roles,
+          AI/ML opportunities, and meaningful projects.
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+
+        <!-- CONTACT INFO -->
+
+        <div class="glass-card contact-card reveal">
+
+          <h3>
+            Get In Touch
+          </h3>
+
+          <p>
+            Have an opportunity, project idea,
+            or technical collaboration in mind?
+            Reach out.
+          </p>
+
+
+          <a
+            class="contact-line"
+            href="mailto:aravinddamera848@gmail.com"
+          >
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <span>
+              aravinddamera848@gmail.com
+            </span>
+
+          </a>
+
+
+          <a
+            class="contact-line"
+            href="tel:+917672077323"
+          >
+
+            <i class="fa-solid fa-phone"></i>
+
+            <span>
+              +91 7672077323
+            </span>
+
+          </a>
+
+
+          <div class="contact-actions">
+
+            <a
+              href="https://github.com/Aravind-848"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+
+
+            <a
+              href="https://wa.me/917672077323"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+          class="glass-card contact-form reveal"
+          id="contactForm"
+        >
+
+          <label>
+
+            Name
+
+            <input
+              id="name"
+              type="text"
+              placeholder="Your name"
+              required
+            >
+
+          </label>
+
+
+          <label>
+
+            Email
+
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </label>
+
+
+          <label>
+
+            Message
+
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Let's build something..."
+              required
+            ></textarea>
+
+          </label>
+
+
+          <button
+            class="gradient-btn"
+            type="submit"
+          >
+
+            Send Message
+
+            <i class="fa-regular fa-paper-plane"></i>
+
+          </button>
+
+
+          <small>
+            Sending opens your email client —
+            no backend required.
+          </small>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <a
+          class="brand"
+          href="#home"
+        >
+          <span>AD</span>
+          <i></i>
+        </a>
+
+        <p>
+          AI/ML Engineer • Software Developer
+        </p>
+
+        <small>
+          Building intelligent solutions with code,
+          data, and curiosity.
+        </small>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#experience">
+          Experience
+        </a>
+
+        <a href="#projects">
+          Projects
+        </a>
+
+        <a href="#skills">
+          Skills
+        </a>
+
+        <a href="#education">
+          Education
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+
+      <div class="footer-social">
+
+        <a
+          href="https://github.com/Aravind-848"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a
+          href="mailto:aravinddamera848@gmail.com"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a
+          href="https://wa.me/917672077323"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Aravind Damera.
+      Built with HTML, CSS &amp; JavaScript.
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- ================= FLOATING BUTTONS ================= -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/917672077323"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+  >
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
